@@ -22,6 +22,7 @@ set t_Co=256
 set tabstop=4
 set shiftwidth=4
 set smartindent
+set pastetoggle=<F3>
 
 set showmatch " matching brackets
 
