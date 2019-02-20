@@ -8,21 +8,45 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'itchyny/lightline.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdtree'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" key mappings
+map ; :Files<CR>
+map <C-o> :NERDTreeToggle<CR>
+nmap ]c <Plug>GitGutterNextHunk
+nmap [c <Plug>GitGutterPrevHunk
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+
 " colour schemes
 set background=dark
 colorscheme gruvbox
 set t_Co=256
 
+" lightline config
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
+
+" tab settings
 set tabstop=4
 set shiftwidth=4
 set smartindent
 set pastetoggle=<F3>
+
+set number
 
 set showmatch " matching brackets
 
