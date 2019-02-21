@@ -20,6 +20,14 @@ Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" split settings/mappings
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>   " down
+nnoremap <C-K> <C-W><C-K>   " up
+nnoremap <C-L> <C-W><C-L>   " right
+nnoremap <C-H> <C-W><C-H>   " left
+
 " key mappings
 map ; :Files<CR>
 map <C-o> :NERDTreeToggle<CR>
