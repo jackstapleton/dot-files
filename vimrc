@@ -7,7 +7,9 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
