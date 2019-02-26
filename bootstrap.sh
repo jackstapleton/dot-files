@@ -1,12 +1,12 @@
+
 #!/bin/bash
 
 PASS=$1
-
 echo 'Running bootstrap.sh'
 
 # yum installs
-sudo yum update -y 
-sudo yum install gcc -y 
+sudo yum update -y
+sudo yum install gcc -y
 
 # anaconda installs
 wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh -O ~/conda.sh
@@ -20,7 +20,7 @@ source ~/.bash_profile
 conda install -cy kx kdb
 conda install -cy kx embedpy
 conda install -cy kx jupyterq
-pip install qpython
+yes | pip install qpython
 
 # git install
 sudo yum install git
@@ -31,5 +31,5 @@ git clone https://jackstapleton:$PASS@github.com/jackstapleton/dot-files.git ~/r
 # vim installs
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -s ~/repos/dot-files/vimrc ~/.vimrc
-
+ln -s ~/repos/dot-files/gitconfig ~/.gitconfig
 echo 'bootstrap.sh completed successfully'
