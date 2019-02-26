@@ -5,9 +5,10 @@
 
 [alias]
   pl = pull
-	ch = checkout
-	co = commit
-	st = status
+  ch = checkout
+  co = commit
+  df = diff
+  st = status
   br = branch
   ps = push
   root = rev-parse --show-toplevel
@@ -19,8 +20,8 @@
   local = normal
   remote = blue bold
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
+  meta = white bold
+  frag = cyan bold
   old = red bold
   new = green bold
 [color "status"]
