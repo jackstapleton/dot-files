@@ -4,13 +4,12 @@
   helper = cache --timeout 7200
 
 [alias]
-  pl = pull
   ch = checkout
-  co = commit
-  df = diff
+  co = commit -m
   st = status
   br = branch
-  ps = push
+  hist = log --oneline --decorate --stat
+  ps = push origin
   root = rev-parse --show-toplevel
 
 [color]
