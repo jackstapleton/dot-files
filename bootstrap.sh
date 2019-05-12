@@ -32,9 +32,9 @@ echo 'export PATH=$PATH:"~/anaconda3/bin"' >> ~/.bash_profile
 source ~/.bash_profile
 
 # kdb installs
-conda install -cy kx kdb
-conda install -cy kx embedpy
-conda install -cy kx jupyterq
+conda install -c kx kdb
+conda install -c kx embedpy
+conda install -c kx jupyterq
 yes | pip install qpython
 
 # rlwrap install
