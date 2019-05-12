@@ -7,6 +7,7 @@ echo 'Running bootstrap.sh'
 # yum installs
 sudo yum update -y
 sudo yum install gcc -y
+sudo yum install tmux -y
 
 # anaconda installs
 wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh -O ~/conda.sh
@@ -32,4 +33,6 @@ git clone https://jackstapleton:$PASS@github.com/jackstapleton/dot-files.git ~/r
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ln -s ~/repos/dot-files/vimrc ~/.vimrc
 ln -s ~/repos/dot-files/gitconfig ~/.gitconfig
+ln -s ~/repos/dot-files/tmuxconfig ~/.tmux.conf
+
 echo 'bootstrap.sh completed successfully'
