@@ -47,6 +47,8 @@ map <C-t> :NERDTreeToggle<CR>
 
 
 " GitGutternnoremap <C-g> 
+noremap <C-G> :GitGutterToggle<CR>
+inoremap <C-G> <C-O>:GitGutterToggle<CR>
 nmap ]c <Plug>GitGutterNextHunk
 nmap [c <Plug>GitGutterPrevHunk
 nmap <Leader>hs <Plug>GitGutterStageHunk
@@ -101,7 +103,8 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/ " bad white
 
 
 " line numbers
-set invnumber=<F4>
+noremap <F4> :set invnumber<CR>
+inoremap <F4> <C-O>:set invnumber<CR>
 set number
 
 " misc

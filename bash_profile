@@ -6,3 +6,5 @@ parse_git_branch() {
 export PS1="\[\033[35m\]\$(parse_git_branch) \[\033[95m\]\w \[\033[00m\]$ "
 export GREP_OPTIONS='--color=auto'
 export PATH="$PATH:~/anaconda3/bin"
+
+alias q="rlwrap q"

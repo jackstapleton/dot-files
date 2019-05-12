@@ -41,7 +41,7 @@ bind -n M-Down select-pane -D
 set-option -g repeat-time 0
 
 # Double press <prefix> to move to last window
-bind-key C-b last-window
+bind-key C-a last-window
 
 # No delay for escape key press
 set -sg escape-time 0
