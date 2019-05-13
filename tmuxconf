@@ -1,11 +1,11 @@
 # Initial setup
-set -g default-terminal xterm-256color
+set -g default-terminal screen-256color
 set -g status-keys vi
  
 # Prefix
-set-option -g prefix C-a
-unbind-key C-a
-bind-key C-a send-prefix
+set-option -g prefix C-Space
+unbind-key C-Space
+bind-key C-Space send-prefix
 set -g base-index 1
  
 # Easy config reload
