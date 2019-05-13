@@ -23,7 +23,7 @@ Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
 " pyhton plugins
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/indentpython.vim'
-pLUGIN 'nvie/vim-pyunit'
+Plugin 'nvie/vim-pyunit'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-syntastic/syntastic'
 Bundle 'Valloric/YouCompleteMe'
