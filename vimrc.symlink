@@ -18,7 +18,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
+Plugin 'stephpy/vim-yaml'
 
 " pyhton plugins
 Plugin 'nvie/vim-flake8'
@@ -79,6 +81,14 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <C-f> za
 
+" Tmux
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+
 "
 " GENERAL SETTINGS
 "
@@ -87,10 +97,10 @@ syntax on
 " split settings/mappings
 set splitbelow
 set splitright
-nnoremap <C-J> <C-W><C-J>   " down
-nnoremap <C-K> <C-W><C-K>   " up
-nnoremap <C-L> <C-W><C-L>   " right
-nnoremap <C-H> <C-W><C-H>   " left
+"nnoremap <C-J> <C-W><C-J>   " down
+"nnoremap <C-K> <C-W><C-K>   " up
+"nnoremap <C-L> <C-W><C-L>   " right
+"nnoremap <C-H> <C-W><C-H>   " left
 
 " tab settings
 set tabstop=4
