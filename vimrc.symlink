@@ -103,11 +103,13 @@ set splitright
 "nnoremap <C-H> <C-W><C-H>   " left
 
 " tab settings
-set tabstop=4
-set shiftwidth=4
-set smartindent
-set smarttab               "Uses shiftwidth instead of tabstop at start of lines"
-set expandtab              "Replaces a <TAB> with spaces--more"
+set autoindent                    " Indent according to previous line.
+set expandtab                     " Use spaces instead of tabs.
+set softtabstop=4                 " Tab key indents by 4 spaces.
+set shiftwidth=4                  " indents by 4 spaces.
+set shiftround                    " indents to next multiple of 'shiftwidth'.
+set backspace=indent,eol,start    " Make backspace work as you would expect.
+
 
 " line numbers
 noremap <F4> :set invnumber<CR>
