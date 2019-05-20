@@ -16,7 +16,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
@@ -74,7 +74,7 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " NerdTree
-map <C-t> :NERDTreeToggle<CR>
+" map <C-t> :NERDTreeToggle<CR>
 
 " SimplyFold folding
 set foldmethod=indent
@@ -94,6 +94,14 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 "
 syntax on
 
+" netrw file tree 
+let g:netrw_banner=0
+let g:netrw_winsize=20
+let g:netrw_liststyle=3
+let g:netrw_localrmdir='rm -r'
+map <c-t> :Lexplore<CR>
+
+
 " split settings/mappings
 set splitbelow
 set splitright
@@ -101,6 +109,16 @@ set splitright
 "nnoremap <C-K> <C-W><C-K>   " up
 "nnoremap <C-L> <C-W><C-L>   " right
 "nnoremap <C-H> <C-W><C-H>   " left
+
+" line numbers
+noremap <F4> :set invnumber<CR>
+inoremap <F4> <C-O>:set invnumber<CR>
+set number
+
+set showmatch           " matching brackets
+set incsearch           " higlight search as you type
+set cursorline          " Find the current line quickly.
+set pastetoggle=<F3>
 
 " tab settings
 set autoindent                    " Indent according to previous line.
@@ -110,15 +128,9 @@ set shiftwidth=4                  " indents by 4 spaces.
 set shiftround                    " indents to next multiple of 'shiftwidth'.
 set backspace=indent,eol,start    " Make backspace work as you would expect.
 
-
-" line numbers
-noremap <F4> :set invnumber<CR>
-inoremap <F4> <C-O>:set invnumber<CR>
-set number
-
-set showmatch " matching brackets
-set incsearch " higlight search as you type 
-set pastetoggle=<F3>
+" undo settings
+set nobackup noswapfile nowritebackup            " disable backup/swap files
+set undofile undodir=~/.vim/undo undolevels=9999 " undo options
 
 
 "
