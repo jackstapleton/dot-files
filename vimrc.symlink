@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " general plugins
+Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/fzf'
@@ -16,7 +17,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'itchyny/lightline.vim'
-" Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
@@ -34,10 +34,18 @@ Plugin 'vim-syntastic/syntastic'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"
+" Leader Mappings
+"
+let mapleader = ";"
+
 
 "
 " PLUGIN SETTINGS
 "
+
+" Ack
+map <leader>a :Ack!Space>
 
 " Colour Schemes
 set background=dark
@@ -45,15 +53,15 @@ colorscheme gruvbox
 set t_Co=256
 
 " GitGutter
-noremap <C-G> :GitGutterToggle<CR>
-inoremap <C-G> <C-O>:GitGutterToggle<CR>
-nmap ]c <Plug>GitGutterNextHunk
-nmap [c <Plug>GitGutterPrevHunk
-nmap <Leader>hs <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterUndoHunk
+noremap <leader>g :GitGutterToggle<CR>
+inoremap <leader>g <C-O>:GitGutterToggle<CR>
+nmap <leader>hn <Plug>GitGutterNextHunk
+nmap <leader>hp <Plug>GitGutterPrevHunk
+nmap <leader>hs <Plug>GitGutterStageHunk
+nmap <leader>hu <Plug>GitGutterUndoHunk
 
 " Fzf
-map ; :Files<CR>
+map <leader>; :Files<CR>
 
 " lightline config
 set laststatus=2
@@ -95,30 +103,37 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 syntax on
 
 " netrw file tree 
-let g:netrw_banner=0
-let g:netrw_winsize=20
-let g:netrw_liststyle=3
-let g:netrw_localrmdir='rm -r'
-map <c-t> :Lexplore<CR>
+"let g:netrw_banner=0
+"let g:netrw_winsize=20
+"let g:netrw_liststyle=3
+"let g:netrw_localrmdir='rm -r'
+"map <c-t> :Lexplore<CR>
 
 
 " split settings/mappings
+map <leader>svp :vsp<cr><c-p>
+map <leader>shp :sp<cr><c-p>
+map <leader>sv :vsp<space>
+map <leader>sh :sp<space>
 set splitbelow
 set splitright
-"nnoremap <C-J> <C-W><C-J>   " down
-"nnoremap <C-K> <C-W><C-K>   " up
-"nnoremap <C-L> <C-W><C-L>   " right
-"nnoremap <C-H> <C-W><C-H>   " left
+nnoremap <leader>h <C-W><C-H>   " move left
+nnoremap <leader>j <C-W><C-J>   " move down
+nnoremap <leader>k <C-W><C-K>   " move up
+nnoremap <leader>l <C-W><C-L>   " move right
+
 
 " line numbers
-noremap <F4> :set invnumber<CR>
-inoremap <F4> <C-O>:set invnumber<CR>
-set number
+noremap <leader>n :set invnumber<CR>
+inoremap <leader>n <C-O>:set invnumber<CR>
+
+au BufEnter * setlocal cursorline number
+au BufLeave * setlocal nocursorline nonumber
+au WinLeave * setlocal nocursorline nonumber
 
 set showmatch           " matching brackets
 set incsearch           " higlight search as you type
-set cursorline          " Find the current line quickly.
-set pastetoggle=<F3>
+set pastetoggle=<leader>pt
 
 " tab settings
 set autoindent                    " Indent according to previous line.
