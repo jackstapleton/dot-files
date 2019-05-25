@@ -8,6 +8,7 @@ echo 'Running bootstrap.sh'
 sudo yum update -y
 sudo yum install gcc -y
 sudo yum install tmux -y
+sudo yum install ack -y
 
 # git install
 sudo yum install git
@@ -35,6 +36,7 @@ source ~/.bash_profile
 conda install -c anaconda cmake-binary
 conda install -c anaconda gcc
 conda install -c anaconda python3-dev
+yes | pip install requests-html
 
 # kdb installs
 conda install -c kx kdb

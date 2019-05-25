@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
+Plugin 'wsdjeg/FlyGrep.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -21,14 +22,12 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
 Plugin 'stephpy/vim-yaml'
-
-" pyhton plugins
 Plugin 'nvie/vim-flake8'
+" pyhton plugins
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-pyunit'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-syntastic/syntastic'
-"Plugin 'Valloric/YouCompleteMe'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,15 +52,18 @@ colorscheme gruvbox
 set t_Co=256
 
 " GitGutter
-noremap <leader>g :GitGutterToggle<CR>
-inoremap <leader>g <C-O>:GitGutterToggle<CR>
+noremap <leader>g :GitGutterToggle<cr>
+inoremap <leader>g <C-O>:GitGutterToggle<cr>
 nmap <leader>hn <Plug>GitGutterNextHunk
 nmap <leader>hp <Plug>GitGutterPrevHunk
 nmap <leader>hs <Plug>GitGutterStageHunk
 nmap <leader>hu <Plug>GitGutterUndoHunk
 
 " Fzf
-map <leader>; :Files<CR>
+map <leader>; :Files<cr>
+
+" FlyGrep
+map <leader>s :FlyGrep<cr>
 
 " lightline config
 set laststatus=2
@@ -82,7 +84,7 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " NerdTree
-" map <C-t> :NERDTreeToggle<CR>
+" map <C-t> :NERDTreeToggle<cr>
 
 " SimplyFold folding
 set foldmethod=indent
@@ -107,7 +109,15 @@ syntax on
 "let g:netrw_winsize=20
 "let g:netrw_liststyle=3
 "let g:netrw_localrmdir='rm -r'
-"map <c-t> :Lexplore<CR>
+"map <c-t> :Lexplore<cr>
+
+" duplicates
+inoremap """ ""<left>
+inoremap ''' ''<left>
+inoremap ((( ()<left>
+inoremap [[[ []<left>
+inoremap {{{ {}<left>
+inoremap <<< <><left>
 
 
 " split settings/mappings
@@ -124,8 +134,8 @@ nnoremap <leader>l <C-W><C-L>   " move right
 
 
 " line numbers
-noremap <leader>n :set invnumber<CR>
-inoremap <leader>n <C-O>:set invnumber<CR>
+noremap <leader>n :set invnumber<cr>
+inoremap <leader>n <C-O>:set invnumber<cr>
 
 au BufEnter * setlocal cursorline number
 au BufLeave * setlocal nocursorline nonumber
@@ -143,9 +153,34 @@ set shiftwidth=4                  " indents by 4 spaces.
 set shiftround                    " indents to next multiple of 'shiftwidth'.
 set backspace=indent,eol,start    " Make backspace work as you would expect.
 
+imap <leader>t <home><tab><down>
+nmap <leader>t <home>i<tab><down><esc>
+imap <leader>tu <home><tab><up>
+nmap <leader>tu <home>i<tab><up><esc>
+
+imap <leader><s-t> <home><esc>dwi<down>
+nmap <leader><s-t> <home>dw<down><esc>
+imap <leader><s-t><s-u> <home><esc>dwi<up>
+nmap <leader><s-t><s-u> <home>dw<up><esc>
+
 " undo settings
 set nobackup noswapfile nowritebackup            " disable backup/swap files
 set undofile undodir=~/.vim/undo undolevels=9999 " undo options
+
+
+" undo a comment
+map <leader><s-c> <home><del><down>
+map <leader><s-c><s-u> <home><del><up>
+
+
+"
+" Q settings
+"
+au BufNewFile,BufRead *.q
+    \ imap <leader>c <home>/<down> |
+    \ imap <leader>cu <home>/<up> |
+    \ nmap <leader>c <home>i/<down><esc> |
+    \ nmap <leader>cu <home>i/<up><esc>
 
 
 "
@@ -159,11 +194,15 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     \ set textwidth=79 |
     \ set autoindent |
-    \ set fileformat=unix
+    \ set fileformat=unix |
+    \ imap <leader>c <home>#<down> |
+    \ imap <leader>cu <home>#<up> |
+    \ nmap <leader>c <home>i#<down><esc> |
+    \ nmap <leader>cu <home>i#<up><esc>
 
 au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
 
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match ErrorMessage /\s\+$/ " bad whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match Error /\s\+$/ " bad whitespace
