@@ -7,12 +7,15 @@ export PS1="\[\033[36m\]\$(parse_git_branch) \[\033[94m\]\${PWD#"${PWD%/*/*}/"} 
 export TERM=screen-256color
 export GREP_OPTIONS='--color=auto'
 export PATH="$PATH:~/anaconda3/bin"
-export FF_HOME=/home/ec2-user/repos/ff-webscraper
+export APP=/home/ec2-user/repos/ff-webscraper
 source ~/anaconda3/bin/activate
 
 alias q="rlwrap q"
+alias p="python"
 
 alias l="ls -CF"
 alias ls="ls -h --color=auto"
 alias la="ls -la --color=auto"
 alias ll="ls -l --color=auto"
+
+cd $APP

@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mechatroner/rainbow_csv'
 Plugin 'wsdjeg/FlyGrep.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -34,9 +35,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "
-" Leader Mappings
+" leader Mappings
 "
-let mapleader = ";"
+let mapleader = " "
 
 
 "
@@ -44,7 +45,7 @@ let mapleader = ";"
 "
 
 " Ack
-map <leader>a :Ack!Space>
+nnoremap <leader>a :Ack!<space>
 
 " Colour Schemes
 set background=dark
@@ -52,18 +53,14 @@ colorscheme gruvbox
 set t_Co=256
 
 " GitGutter
-noremap <leader>g :GitGutterToggle<cr>
-inoremap <leader>g <C-O>:GitGutterToggle<cr>
-nmap <leader>hn <Plug>GitGutterNextHunk
-nmap <leader>hp <Plug>GitGutterPrevHunk
-nmap <leader>hs <Plug>GitGutterStageHunk
-nmap <leader>hu <Plug>GitGutterUndoHunk
+nnoremap <leader>g :GitGutterToggle<cr>
+nnoremap <leader>g <esc>:GitGutterToggle<cr>i
 
 " Fzf
-map <leader>; :Files<cr>
+nnoremap <leader>; :Files<cr>
 
 " FlyGrep
-map <leader>s :FlyGrep<cr>
+nnoremap <leader>s :FlyGrep<cr>
 
 " lightline config
 set laststatus=2
@@ -89,7 +86,12 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " SimplyFold folding
 set foldmethod=indent
 set foldlevel=99
-nnoremap <C-f> za
+set foldlevelstart=1
+nnoremap <leader>ft za
+nnoremap <leader>fo zR
+nnoremap <leader>fc zM
+
+
 
 " Tmux
 let g:tmux_navigator_no_mappings = 1
@@ -104,27 +106,34 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 "
 syntax on
 
-" netrw file tree 
-"let g:netrw_banner=0
-"let g:netrw_winsize=20
-"let g:netrw_liststyle=3
-"let g:netrw_localrmdir='rm -r'
-"map <c-t> :Lexplore<cr>
+
+" edit/src vimrc
+nnoremap <leader>q :e ~/.vimrc<cr>
+nnoremap <leader>w :source ~/.vimrc<cr>
+nnoremap <leader>e :PluginInstall<cr>
+
+
+" buffers
+nnoremap <leader><leader> <c-^>             " Open last buffer.
+nnoremap <leader>o :only<cr>
+nnoremap <leader>d :echo expand('%')<cr>    " Show the path of the current file
+nnoremap <leader>q :quit<cr>
+nnoremap <leader>w :write<cr>
+nnoremap <leader>e :xit<cr>
+
 
 " duplicates
-inoremap """ ""<left>
-inoremap ''' ''<left>
-inoremap ((( ()<left>
-inoremap [[[ []<left>
-inoremap {{{ {}<left>
-inoremap <<< <><left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap < <><left>
 
 
 " split settings/mappings
-map <leader>svp :vsp<cr><c-p>
-map <leader>shp :sp<cr><c-p>
-map <leader>sv :vsp<space>
-map <leader>sh :sp<space>
+nnoremap <leader>r :vsp<cr>:Files<cr>
+nnoremap <leader>d :sp<cr>:Files<cr>
 set splitbelow
 set splitright
 nnoremap <leader>h <C-W><C-H>   " move left
@@ -134,8 +143,8 @@ nnoremap <leader>l <C-W><C-L>   " move right
 
 
 " line numbers
-noremap <leader>n :set invnumber<cr>
-inoremap <leader>n <C-O>:set invnumber<cr>
+nnoremap <leader>4 :set invnumber<cr>
+nnoremap <leader>4 <C-O>:set invnumber<cr>
 
 au BufEnter * setlocal cursorline number
 au BufLeave * setlocal nocursorline nonumber
@@ -143,7 +152,7 @@ au WinLeave * setlocal nocursorline nonumber
 
 set showmatch           " matching brackets
 set incsearch           " higlight search as you type
-set pastetoggle=<leader>pt
+set pastetoggle=<leader>3
 
 " tab settings
 set autoindent                    " Indent according to previous line.
@@ -153,40 +162,36 @@ set shiftwidth=4                  " indents by 4 spaces.
 set shiftround                    " indents to next multiple of 'shiftwidth'.
 set backspace=indent,eol,start    " Make backspace work as you would expect.
 
-imap <leader>t <home><tab><down>
-nmap <leader>t <home>i<tab><down><esc>
-imap <leader>tu <home><tab><up>
-nmap <leader>tu <home>i<tab><up><esc>
-
-imap <leader><s-t> <home><esc>dwi<down>
-nmap <leader><s-t> <home>dw<down><esc>
-imap <leader><s-t><s-u> <home><esc>dwi<up>
-nmap <leader><s-t><s-u> <home>dw<up><esc>
+nnoremap <leader>t <home>i<tab><down><esc>
+nnoremap <leader><s-t> <home><del><del><del><del>
 
 " undo settings
 set nobackup noswapfile nowritebackup            " disable backup/swap files
 set undofile undodir=~/.vim/undo undolevels=9999 " undo options
 
-
-" undo a comment
-map <leader><s-c> <home><del><down>
-map <leader><s-c><s-u> <home><del><up>
+" search and replace
+nnoremap <leader>s :%s/\<<c-r><c-w>\>//g<left><left>
 
 
 "
 " Q settings
 "
+nnoremap <leader>q :w<cr>:!q %<cr>
+
 au BufNewFile,BufRead *.q
-    \ imap <leader>c <home>/<down> |
-    \ imap <leader>cu <home>/<up> |
-    \ nmap <leader>c <home>i/<down><esc> |
-    \ nmap <leader>cu <home>i/<up><esc>
+    \ nnoremap <leader>c <home>i/<down><esc>
+
+
+" undo a comment
+nnoremap <leader><s-c> <home><del><down>
 
 
 "
 " Python Settings
 "
 let python_highlight_all=1
+
+nnoremap <leader>p :w<cr>:!python %<cr>
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -195,10 +200,7 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79 |
     \ set autoindent |
     \ set fileformat=unix |
-    \ imap <leader>c <home>#<down> |
-    \ imap <leader>cu <home>#<up> |
-    \ nmap <leader>c <home>i#<down><esc> |
-    \ nmap <leader>cu <home>i#<up><esc>
+    \ nnoremap <leader>c <home>i#<down><esc>
 
 au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
