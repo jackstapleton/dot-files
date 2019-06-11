@@ -3,10 +3,8 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
   }
 
-export PS1="\[\033[36m\]\$(parse_git_branch) \[\033[94m\]\${PWD#"${PWD%/*/*}/"} \[\033[90m\]$ \[\033[00m\]"
-
 alias q="rlwrap q"
-alias p="python"
+alias p="python3"
 
 alias l="ls -CF"
 alias ls="ls -h --color=auto"

@@ -1,10 +1,12 @@
 #!/bin/bash
 
-config_dir=$1
-home_dir=~/
-config_files=`ls *.symlink`
+config_dir=~/repos/dot-files
+config_files=`ls $config_dir`
 
 for src in $config_files; do
-	link=`echo ${src::-8}`
-	echo "ln -s $config_dir$src ~/.$link" | bash
+	if [[ "$src" == *"symlink" ]]; then
+		link=`echo ${src::-8}`
+		echo "ln -s $config_dir/$src ~/.$link"
+		ln -s $config_dir/$src ~/.$link
+	fi
 done

@@ -1,5 +1,6 @@
 [user]
-  name = stapletj
+  name = jackstapleton
+
 [credential]
   helper = cache --timeout 7200
 
@@ -14,15 +15,18 @@
 
 [color]
   ui = true
+
 [color "branch"]
   current = yellow bold
   local = normal
   remote = blue bold
+
 [color "diff"]
   meta = white bold
   frag = cyan bold
   old = red bold
   new = green bold
+
 [color "status"]
   added = green dim
   changed = cyan dim
