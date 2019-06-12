@@ -25,6 +25,10 @@ nnoremap <leader>4 :set invnumber<cr>
 " toggle paste 
 nnoremap <leader>3 :set paste<cr>i
 
+" scrolling
+nnoremap <C-j> 10jzz
+nnoremap <C-k> 10kzz
+
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 
