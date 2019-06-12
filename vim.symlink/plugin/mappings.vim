@@ -23,7 +23,7 @@ nnoremap <s-cr> <s-o><esc>
 " toggle line numbers
 nnoremap <leader>4 :set invnumber<cr>
 " toggle paste 
-nnoremap <leader>3 :set pastetoggle<cr>i
+nnoremap <leader>3 :set paste<cr>i
 
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
