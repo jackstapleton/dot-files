@@ -16,7 +16,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
 Plugin 'stephpy/vim-yaml'
-
+Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
