@@ -33,7 +33,7 @@ nnoremap <leader>p :w<cr>:!python %<cr>
 nnoremap <leader>q :w<cr>:!q %<cr>
 
 " split settings/mappings
-nnoremap <leader>| :vsp<cr>
+nnoremap <leader>\| :vsp<cr>
 nnoremap <leader>\ :vsp<cr>
 nnoremap <leader>- :sp<cr>
 nnoremap <c-h> <c-w><c-h>   " move left
