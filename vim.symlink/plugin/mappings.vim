@@ -48,3 +48,6 @@ nnoremap <leader>l <C-W><C-L>   " move right
 nnoremap <leader>q :e ~/.vimrc<cr>
 nnoremap <leader>w :source ~/.vimrc<cr>
 nnoremap <leader>e :PluginInstall<cr>
+
+" zap whitespace
+nnoremap <leader>zz :%s/\s\+$//g<cr>
