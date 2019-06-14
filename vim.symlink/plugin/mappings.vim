@@ -25,10 +25,6 @@ nnoremap <leader>4 :call CycleNumbering()<cr>
 " toggle paste 
 nnoremap <leader>3 :set paste<cr>i
 
-" scrolling
-nnoremap <C-j> 10jzz
-nnoremap <C-k> 10kzz
-
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 
@@ -37,12 +33,13 @@ nnoremap <leader>p :w<cr>:!python %<cr>
 nnoremap <leader>q :w<cr>:!q %<cr>
 
 " split settings/mappings
-nnoremap <leader>r :vsp<cr>
-nnoremap <leader>d :sp<cr>
-nnoremap <leader>h <C-W><C-H>   " move left
-nnoremap <leader>j <C-W><C-J>   " move down
-nnoremap <leader>k <C-W><C-K>   " move up
-nnoremap <leader>l <C-W><C-L>   " move right
+nnoremap <leader>| :vsp<cr>
+nnoremap <leader>\ :vsp<cr>
+nnoremap <leader>- :sp<cr>
+nnoremap <c-h> <c-w><c-h>   " move left
+nnoremap <c-j> <c-w><c-j>   " move down
+nnoremap <c-k> <c-w><c-k>   " move up
+nnoremap <c-l> <c-w><c-l>   " move right
 
 " edit/src vimrc
 nnoremap <leader>q :e ~/.vimrc<cr>
