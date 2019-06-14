@@ -1,5 +1,5 @@
 " Cycle through relativenumber + number, number (only), and no numbering.
-function! wincent#mappings#leader#cycle_numbering() abort
+function! CycleNumbering()
   if exists('+relativenumber')
     execute {
           \ '00': 'set relativenumber   | set number',
