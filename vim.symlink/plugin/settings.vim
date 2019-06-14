@@ -15,9 +15,9 @@ set splitbelow
 set splitright
 
 " current buffer settings
-au BufEnter * setlocal cursorline number
-au BufLeave * setlocal nocursorline nonumber
-au WinLeave * setlocal nocursorline nonumber
+au BufEnter * setlocal cursorline relativenumber
+au BufLeave * setlocal nocursorline number
+au WinLeave * setlocal nocursorline number
 
 " misc
 set showmatch           " show matching brackets
