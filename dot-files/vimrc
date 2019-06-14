@@ -10,6 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " general plugins
 Plugin 'flazz/vim-colorschemes'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
@@ -17,7 +19,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'jackstapleton/vim-qkdb-syntax-gruvbox'
 Plugin 'stephpy/vim-yaml'
-Plugin 'valloric/youcompleteme'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
