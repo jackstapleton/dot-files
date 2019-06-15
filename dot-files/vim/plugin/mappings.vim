@@ -22,13 +22,13 @@ nnoremap <s-cr> <s-o><esc>
 
 " toggle line numbers
 nnoremap <leader>4 :call CycleNumbering()<cr>
-" toggle paste 
+" toggle paste
 nnoremap <leader>3 :set paste<cr>i
 
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 
-" save and run current file 
+" save and run current file
 nnoremap <leader>p :w<cr>:!python %<cr>
 nnoremap <leader>q :w<cr>:!q %<cr>
 
@@ -36,6 +36,7 @@ nnoremap <leader>q :w<cr>:!q %<cr>
 nnoremap <leader>\| :vsp<cr>
 nnoremap <leader>\ :vsp<cr>
 nnoremap <leader>- :sp<cr>
+
 nnoremap <c-h> <c-w><c-h>   " move left
 nnoremap <c-j> <c-w><c-j>   " move down
 nnoremap <c-k> <c-w><c-k>   " move up
@@ -48,3 +49,4 @@ nnoremap <leader>e :PluginInstall<cr>
 
 " zap whitespace
 nnoremap <leader>zz :%s/\s\+$//g<cr>
+nnoremap <leader>tt :%s/\t/    /g<cr>

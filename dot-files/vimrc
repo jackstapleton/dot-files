@@ -10,9 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " general plugins
 Plugin 'flazz/vim-colorschemes'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'Yggdroot/LeaderF'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'pangloss/vim-javascript'
