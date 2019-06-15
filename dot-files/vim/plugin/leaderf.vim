@@ -1,7 +1,7 @@
 let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_WorkingDirectory = '/'
 
-let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_StlColorscheme = 'one'
 highlight Lf_hl_match gui=bold guifg=Blue cterm=bold ctermfg=21
 highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
 

@@ -3,6 +3,8 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
   }
 
+alias aa=". ~/anaconda3/etc/profile.d/conda.sh; conda activate"
+
 alias q="rlwrap q"
 alias p="python3"
 
