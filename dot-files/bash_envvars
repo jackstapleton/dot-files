@@ -1,5 +1,13 @@
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  }
 
-export PS1='\e[32;1m\u@\e[35m\W\e[0m\$ '
+USER="\[\e[01;35m\]\u"
+HOST="\[\e[01;35m\]\H"
+DIR="\[\e[01;32m\]\w"
+GIT="\[\e[01;36m\]\$(parse_git_branch)"
 
-LS_COLORS='ow=01;34;40'
-export LS_COLORS
+END="\[\e[01;37m\]$ "
+NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
+
+export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR $GIT $END"

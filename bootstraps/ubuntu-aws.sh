@@ -34,3 +34,6 @@ sudo apt install rlwrap -y
 
 # link the rest of the dot files
 bash $DIR/link-dot-files.sh
+
+# tell bashrc to source  .bash_envvars
+echo ". ~/.bash_envvars" >> ~/.bashrc

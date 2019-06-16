@@ -1,5 +1,5 @@
 let g:Lf_ShortcutF = '<c-p>'
-let g:Lf_WorkingDirectory = '/'
+let g:Lf_WorkingDirectory = '/home/ubuntu'
 
 let g:Lf_StlColorscheme = 'one'
 highlight Lf_hl_match gui=bold guifg=Blue cterm=bold ctermfg=21
