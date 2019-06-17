@@ -4,13 +4,14 @@ set -x
 sudo apt update -y
 sudo apt upgrade -y
 
-sudo apt install git nodejs ripgrep rlwrap -y
+sudo apt install git nodejs rlwrap -y
 
 sudo npm install -g @angular/cli
 
 DIR=`dirname $0`
 $DIR/vim-vundle.sh
 
+$DIR/install-ripgrep-on-ubuntu.sh
 
 # anaconda installs
 wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh -O ~/conda.sh
