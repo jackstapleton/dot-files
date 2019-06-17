@@ -6,7 +6,7 @@ let mapleader = " "
 nnoremap <leader>g :GitGutterToggle<cr>
 
 " buffers
-nnoremap <leader><leader> <c-^>             " Open last buffer.
+nnoremap <leader><leader> :w<cr><c-^>             " Open last buffer.
 nnoremap <leader>o :only<cr>
 nnoremap <leader>d :echo expand('%')<cr>    " Show the path of the current file
 nnoremap <leader>q :quit<cr>
@@ -16,9 +16,12 @@ nnoremap <leader>e :xit<cr>
 " goyo mapping
 nnoremap <leader>g :Goyo<cr>
 
-" new line stay in normal mode
-nnoremap <cr> o<esc>
-nnoremap <s-cr> <s-o><esc>
+" auto insertions
+nnoremap <cr> o<esc>          " add new line (below) stay in normal
+nnoremap <s-cr> <s-o><esc>    " (above)
+nnoremap <s-E> $a                     " enter insert mode at the end of the line
+nnoremap <leader>dbg o'dbg;<esc>      " add q breakpoint
+nnoremap <leader>; $a;<esc>           " add semi-colon to the end of a line
 
 " toggle line numbers
 nnoremap <leader>4 :call CycleNumbering()<cr>
@@ -27,6 +30,7 @@ nnoremap <leader>3 :set paste<cr>i
 
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
+nnoremap <leader>r :.s///<left><left>
 
 " save and run current file
 nnoremap <leader>p :w<cr>:!python %<cr>
@@ -49,4 +53,9 @@ nnoremap <leader>e :PluginInstall<cr>
 
 " zap whitespace
 nnoremap <leader>zz :%s/\s\+$//g<cr>
-nnoremap <leader>tt :%s/\t/    /g<cr>
+nnoremap <leader>zt :%s/\t/    /g<cr>
+
+" vimrc files
+nnoremap <leader>vrc :e ~/.vimrc<cr>
+nnoremap <leader>map :e ~/.vim/plugin/mappings.vim<cr>
+nnoremap <leader>set :e ~/.vim/plugin/settings.vim<cr>
