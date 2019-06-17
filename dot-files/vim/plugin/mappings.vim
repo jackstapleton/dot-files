@@ -1,9 +1,15 @@
+" command mappings
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
 " leader mappings
-"
+
 let mapleader = " "
 
 " toggle git gutter
-nnoremap <leader>g :GitGutterToggle<cr>
+nnoremap <leader>gg :GitGutterToggle<cr>
 
 " buffers
 nnoremap <leader><leader> :w<cr><c-^>             " Open last buffer.
@@ -14,7 +20,7 @@ nnoremap <leader>w :write<cr>
 nnoremap <leader>e :xit<cr>
 
 " goyo mapping
-nnoremap <leader>g :Goyo<cr>
+nnoremap <leader>gy :Goyo<cr>
 
 " auto insertions
 nnoremap <cr> o<esc>          " add new line (below) stay in normal
@@ -31,6 +37,7 @@ nnoremap <leader>3 :set paste<cr>i
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 nnoremap <leader>r :.s///<left><left>
+nnoremap <leader>/ :noh<cr>
 
 " save and run current file
 nnoremap <leader>p :w<cr>:!python %<cr>
