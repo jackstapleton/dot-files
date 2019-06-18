@@ -1,6 +1,7 @@
 #!/bin/bash
 set -x
 
+ln -s ~/repos/environments-setup/dot-files/ackrc ~/.ackrc
 ln -s ~/repos/environments-setup/dot-files/bash_aliases ~/.bash_aliases
 ln -s ~/repos/environments-setup/dot-files/bash_envvars ~/.bash_envvars
 ln -s ~/repos/environments-setup/dot-files/gitconfig ~/.gitconfig
