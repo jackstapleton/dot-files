@@ -1,0 +1,14 @@
+--break
+
+--color
+--color-match=on_white
+--color-filename=red
+--color-lineno=magenta
+
+--ignore-case
+--smart-case
+
+--recurse
+--sort-files
+
+--type-set=web=.css,.csv,.html,.js,.json,.py,.q,.sh,.txt,.yml
