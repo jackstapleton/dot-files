@@ -5,8 +5,10 @@
   helper = cache --timeout 7200
 
 [alias]
+  aa = add -A
   ch = checkout
   co = commit -m
+  df = diff -w
   st = status
   br = branch
   hist = log --oneline --decorate --stat

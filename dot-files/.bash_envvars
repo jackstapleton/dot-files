@@ -10,4 +10,12 @@ GIT="\[\e[01;36m\]\$(parse_git_branch)"
 END="\[\e[01;37m\]$ "
 NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
 
-export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR $GIT $END"
+export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
+
+LS_COLORS='ow=01;34;01'
+export LS_COLORS
+
+export APP=~/repos/ff-app
+export app=$APP
+
+export REPOS=~/repos

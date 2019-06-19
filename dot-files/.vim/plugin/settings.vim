@@ -1,4 +1,7 @@
 " color scheme
+"
+"
+"
 set background=dark
 colorscheme gruvbox
 set t_Co=256
@@ -15,16 +18,18 @@ set splitbelow
 set splitright
 
 " current buffer settings
-au BufEnter * setlocal cursorline relativenumber
-au BufLeave * setlocal nocursorline number
-au WinLeave * setlocal nocursorline number
+au BufEnter * setlocal cursorline relativenumber number
+au BufLeave * setlocal nocursorline nonumber norelativenumber
+au WinLeave * setlocal nocursorline nonumber norelativenumber
 
 " misc
 set showmatch           " show matching brackets
 
 " search settings
-set incsearch           " higlight search as you type
 set hlsearch            " higlight all search hits
+set ignorecase          " ignore case in search patterns
+set incsearch           " higlight search as you type
+set smartcase           " overrides 'ignorecase', case-sensitive if uppercase chars
 
 " tab settings
 set autoindent                    " Indent according to previous line.
