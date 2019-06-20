@@ -4,6 +4,8 @@ command Wq wq
 command W w
 command Q q
 
+inoremap <c-e> <esc>
+nnoremap ; :
 let mapleader = " "
 
 " ack
@@ -22,8 +24,6 @@ nnoremap <leader>bb ggi#!/bin/bash -x<cr><esc>
 " buffers
 nnoremap <leader>o :only<cr>
 nnoremap <leader>gy :Goyo<cr>
-" cmd mode
-nnoremap ; :
 " margins
 nnoremap <leader>gg :GitGutterToggle<cr>
 nnoremap <leader>no :set nonumber norelativenumber<cr>
