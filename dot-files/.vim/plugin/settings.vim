@@ -40,7 +40,7 @@ set shiftwidth=4                  " indents by 4 spaces.
 set shiftround                    " indents to next multiple of 'shiftwidth'.
 set backspace=indent,eol,start    " Make backspace work as you would expect.
 
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.ts,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
@@ -49,7 +49,7 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+    " \ set textwidth=79 |
     \ set autoindent |
     \ set fileformat=unix |
     \ nnoremap <leader>c <home>i#<down><esc>

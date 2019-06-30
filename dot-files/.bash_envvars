@@ -19,3 +19,4 @@ export APP=~/repos/ff-app
 export app=$APP
 
 export REPOS=~/repos
+export SCHEMA=~/repos/ff-app/config/schemas

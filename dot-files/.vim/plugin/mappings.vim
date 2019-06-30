@@ -33,7 +33,7 @@ nnoremap <leader>nr :set number relativenumber<cr>
 nnoremap <leader>t :Vexplore<cr>
 " save and run current file
 nnoremap <leader>bs :w<cr>:!bash %<cr>
-nnoremap <leader>py :w<cr>:!python %<cr>
+nnoremap <leader>p :w<cr>:!python %<cr>
 nnoremap <leader>q :w<cr>:!q %<cr>
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>

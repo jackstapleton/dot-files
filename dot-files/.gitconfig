@@ -1,5 +1,6 @@
 [user]
   name = jackstapleton
+  email = jack.stapleton@outlook.com
 
 [credential]
   helper = cache --timeout 7200
