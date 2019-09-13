@@ -4,7 +4,7 @@ command Wq wq
 command W w
 command Q q
 
-inoremap <c-e> <esc>
+inoremap jk <esc>
 nnoremap ; :
 let mapleader = " "
 
