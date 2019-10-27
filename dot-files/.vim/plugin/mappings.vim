@@ -4,9 +4,15 @@ command Wq wq
 command W w
 command Q q
 
-inoremap jk <esc>
 nnoremap ; :
 let mapleader = " "
+
+" insert mode mappings
+inoremap jk <esc>
+inoremap jj <esc>j
+inoremap kk <esc>k
+inoremap hh <esc>h
+inoremap lll <esc>l
 
 " ack
 noremap <leader>a <esc>:w<cr>:Ack!<space>
@@ -17,10 +23,9 @@ nmap <silent> <leader>ap <Plug>(ale_previous_wrap)
 " auto insertions
 nnoremap <cr> o<esc>
 nnoremap <s-cr> <s-o><esc>
-nnoremap <s-E> $a
 nnoremap <leader>dbg o'dbg;<esc>
-nnoremap <leader>; $a;<esc>
-nnoremap <leader>bb ggi#!/bin/bash -x<cr><esc>
+nnoremap <leader>; A;<esc>
+nnoremap <leader>bb ggi#!/bin/bash<cr><esc>
 " buffers
 nnoremap <leader>o :only<cr>
 nnoremap <leader>gy :Goyo<cr>

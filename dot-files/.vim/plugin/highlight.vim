@@ -1,10 +1,6 @@
 " change highlighting
 function! MyHighlights() abort
 	highlight Normal ctermfg=223 ctermbg=234 guifg=#ebdbb2 guibg=#282828
-	highlight Search cterm=reverse ctermfg=109 ctermbg=237 guifg=#83a598 guibg=#3c3836
-	" highlight Search cterm=underline ctermfg=109 ctermbg=237 guifg=#83a598 guibg=#3c3836
-	highlight IncSearch cterm=reverse ctermfg=109 ctermbg=237 guifg=#83a598 guibg=#3c3836
-	highlight Search cterm=underline ctermfg=109 ctermbg=237 guifg=#83a598 guibg=#3c3836
 	highlight DiffAdd term=bold cterm=bold ctermfg=142 ctermbg=234 gui=bold guifg=#b8bb26 guibg=#282828
 	highlight DiffChange term=bold cterm=bold ctermfg=108 ctermbg=234 gui=bold guifg=#8ec07c guibg=#282828
 	highlight DiffDelete term=bold cterm=bold ctermfg=167 ctermbg=234 gui=bold guifg=#fb4934 guibg=#282828

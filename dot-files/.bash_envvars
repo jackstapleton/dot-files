@@ -15,8 +15,20 @@ export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
 LS_COLORS='ow=01;34;01'
 export LS_COLORS
 
-export APP=~/repos/ff-app
-export app=$APP
+export CONDA_HOME=/home/jack/miniconda
+
+export BUILDDIRECTORY=~/build
+export CORECHANNEL=$BUILDDIRECTORY/repos/core
+export EVENTBUSCHANNEL=$BUILDDIRECTORY/repos/eventbus
+
+export S3JUMPPOINT=/mnt/c/Users/Jack/s3
+
+export kdb=/home/jack/miniconda/envs/kdb
 
 export REPOS=~/repos
-export SCHEMA=~/repos/ff-app/config/schemas
+export core=$REPOS/kdb-core
+export eb=$REPOS/kdb-eventbus
+export rdb=$REPOS/kdb-rdb
+
+export MODULESHOME=~/modules
+export KDBSCHEMA=$REPOS/kdb-schema

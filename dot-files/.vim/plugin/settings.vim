@@ -1,7 +1,4 @@
 " color scheme
-"
-"
-"
 set background=dark
 colorscheme gruvbox
 set t_Co=256
@@ -16,11 +13,6 @@ let g:lightline = {
 " split settings/mappings
 set splitbelow
 set splitright
-
-" current buffer settings
-au BufEnter * setlocal cursorline relativenumber number
-au BufLeave * setlocal nocursorline nonumber norelativenumber
-au WinLeave * setlocal nocursorline nonumber norelativenumber
 
 " misc
 set showmatch           " show matching brackets
@@ -39,6 +31,8 @@ set softtabstop=4                 " Tab key indents by 4 spaces.
 set shiftwidth=4                  " indents by 4 spaces.
 set shiftround                    " indents to next multiple of 'shiftwidth'.
 set backspace=indent,eol,start    " Make backspace work as you would expect.
+
+autocmd FileType q setlocal commentstring=/\ %s
 
 au BufNewFile,BufRead *.js,*.ts,*.html,*.css
     \ set tabstop=2 |
