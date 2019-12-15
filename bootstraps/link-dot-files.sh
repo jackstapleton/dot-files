@@ -10,6 +10,6 @@ for dotfile in $DOTFILES; do
     elif [[ $dotfile == ".." ]]; then
         continue
     else
-        echo "ln -s $(pwd)/$DOTFILESDIR/$dotfile $HOME/$dotfile"
+        ln -s $(pwd)/$DOTFILESDIR/$dotfile $HOME/$dotfile
     fi
 done

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-REPODIR=$HOME/repos1
+REPODIR=$HOME/repos
 mkdir -p $REPODIR
 
 GIT=git@github.com:jackstapleton

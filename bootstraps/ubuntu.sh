@@ -8,7 +8,7 @@ sudo apt upgrade -y
 
 sudo apt install gcc g++ make -y
 sudo apt install rustc cargo -y
-sudo apt istall rlwrap silversearcher-ag ack rg -y
+sudo apt install rlwrap silversearcher-ag ack -y
 
 BASEDIR=$(dirname $0)
 

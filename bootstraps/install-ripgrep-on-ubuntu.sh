@@ -1,8 +1,9 @@
 #!/bin/bash -x
 [[ $UID == 0 ]] || { echo "run as sudo to install"; exit 1; }
 
+apt install jq -y
+
 REPO="https://github.com/BurntSushi/ripgrep/releases/download/"
-RG_LATEST=$(curl -sSL "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | jq --raw-output .tag_name)
 RG_LATEST=$(curl -sSL "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | jq --raw-output .tag_name)
 RELEASE="${RG_LATEST}/ripgrep-${RG_LATEST}-x86_64-unknown-linux-musl.tar.gz"
 

@@ -15,12 +15,11 @@ export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
 LS_COLORS='ow=01;34;01'
 export LS_COLORS
 
-export CONDA_HOME=$HOME/miniconda
-
 export BUILDDIR=$HOME/build
+export MINICONDAHOME=$HOME/miniconda
+export REPOS=~/repos
 export CORECHANNEL=$BUILDDIR/repos/core
 
-export REPOS=~/repos
 export core=$REPOS/kdb-core
 export eb=$REPOS/kdb-eventbus
 export rdb=$REPOS/kdb-rdb
