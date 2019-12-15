@@ -1,37 +1,41 @@
 #!/bin/bash
 set -x
 
+echo "Running $0"
+
 sudo apt update -y
 sudo apt upgrade -y
 
-sudo apt install gcc git g++ make nodejs rlwrap npm silversearcher-ag -y
+sudo apt install gcc g++ make -y
+sudo apt install rustc cargo -y
+sudo apt istall rlwrap silversearcher-ag ack rg -y
 
-sudo npm install -g @angular/cli
+BASEDIR=$(dirname $0)
 
-DIR=`dirname $0`
-$DIR/vim-vundle.sh
+# link dot files
+bash $BASEDIR/link-dot-files.sh
 
-sudo $DIR/install-ripgrep-on-ubuntu.sh
+# install and run vundle
+mkdir -p $HOME/.vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+# git repos
+bash $BASEDIR/git-clone.sh $HOME/repos
+
+sudo $BASEDIR/install-ripgrep-on-ubuntu.sh
 
 # anaconda installs
-wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh -O ~/conda.sh
-bash ~/conda.sh -b -p ~/anaconda3
-rm ~/conda.sh
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O $HOME/conda.sh
+export MINICONDAHOME=$HOME/miniconda
+bash $HOME/conda.sh -b -p $MINICONDAHOME
+rm $HOME/conda.sh
 
-. ~/anaconda3/etc/profile.d/conda.sh
+. $MINICONDAHOME/etc/profile.d/conda.sh
 conda activate
 
-# kdb installs
-conda install -c kx kdb
-conda install -c kx embedpy
-conda install -c kx jupyterq
-
-# python packages
-yes | pip install qpython
-yes | pip install requests-html
-
-# link the rest of the dot files
-bash $DIR/link-dot-files.sh
-
 # tell bashrc to source  .bash_envvars
-echo ". ~/.bash_envvars" >> ~/.bashrc
+echo "" >> $HOME/.bashrc
+echo ". $HOME/.bash_envvars" >> $HOME/.bashrc
+echo ". $HOME/.bash_aliases" >> $HOME/.bashrc
+echo "" >> $HOME/.bashrc

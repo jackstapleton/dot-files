@@ -1,10 +1,15 @@
 #!/bin/bash
-set -x
 
-ln -s ~/repos/environments-setup/dot-files/.ackrc ~/.ackrc
-ln -s ~/repos/environments-setup/dot-files/.bash_aliases ~/.bash_aliases
-ln -s ~/repos/environments-setup/dot-files/.bash_envvars ~/.bash_envvars
-ln -s ~/repos/environments-setup/dot-files/.gitconfig ~/.gitconfig
-ln -s ~/repos/environments-setup/dot-files/.tmux.conf ~/.tmux.conf
-ln -s ~/repos/environments-setup/dot-files/.vimrc ~/.vimrc
-ln -s ~/repos/environments-setup/dot-files/.vim/plugin ~/.vim/plugin
+BASEDIR=$(dirname $0)
+DOTFILESDIR=$BASEDIR/../dot-files
+DOTFILES=$(ls -a $DOTFILESDIR)
+
+for dotfile in $DOTFILES; do
+    if [[ $dotfile == "." ]]; then
+        continue
+    elif [[ $dotfile == ".." ]]; then
+        continue
+    else
+        echo "ln -s $(pwd)/$DOTFILESDIR/$dotfile $HOME/$dotfile"
+    fi
+done

@@ -6,7 +6,7 @@
   helper = cache --timeout 7200
 
 [alias]
-  aa = add -A
+  aa = add --all
   ch = checkout
   co = commit -m
   df = diff -w

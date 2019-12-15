@@ -13,6 +13,7 @@ inoremap jj <esc>j
 inoremap kk <esc>k
 inoremap hh <esc>h
 inoremap lll <esc>l
+inoremap wq<cr> <esc>:wq!<cr>
 
 " ack
 noremap <leader>a <esc>:w<cr>:Ack!<space>

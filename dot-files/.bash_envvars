@@ -2,33 +2,31 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
   }
 
+# setup command prompt
 USER="\[\e[01;35m\]\u"
 HOST="\[\e[01;35m\]\H"
 DIR="\[\e[01;32m\]\w"
 GIT="\[\e[01;36m\]\$(parse_git_branch)"
-
 END="\[\e[01;37m\]$ "
 NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
-
 export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
 
+# fix wsl directory colors
 LS_COLORS='ow=01;34;01'
 export LS_COLORS
 
-export CONDA_HOME=/home/jack/miniconda
+export CONDA_HOME=$HOME/miniconda
 
-export BUILDDIRECTORY=~/build
-export CORECHANNEL=$BUILDDIRECTORY/repos/core
-export EVENTBUSCHANNEL=$BUILDDIRECTORY/repos/eventbus
-
-export S3JUMPPOINT=/mnt/c/Users/Jack/s3
-
-export kdb=/home/jack/miniconda/envs/kdb
+export BUILDDIR=$HOME/build
+export CORECHANNEL=$BUILDDIR/repos/core
 
 export REPOS=~/repos
 export core=$REPOS/kdb-core
 export eb=$REPOS/kdb-eventbus
 export rdb=$REPOS/kdb-rdb
+export pub=$REPOS/kdb-pubsub
+
+export notes=$REPOS/notes
 
 export MODULESHOME=~/modules
 export KDBSCHEMA=$REPOS/kdb-schema
