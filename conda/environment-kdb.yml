@@ -1,0 +1,19 @@
+name: kdb
+channels:
+  - kx
+  - conda-forge
+  - file://home/jack/build/conda-channel
+dependencies:
+  - boto
+  - boto3
+  - kdb
+  - kdb-core
+  - kdb-eventbus
+  - kdb-pubsub
+  - kdb-rdb
+  - pyq
+  - numpy
+  - pandas
+  - python=3.7
+  - pyyaml
+  - yaml

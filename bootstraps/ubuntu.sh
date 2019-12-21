@@ -9,6 +9,7 @@ sudo apt upgrade -y
 sudo apt install gcc g++ make -y
 sudo apt install rustc cargo -y
 sudo apt install rlwrap silversearcher-ag ack -y
+sudo apt install tree -y
 
 BASEDIR=$(dirname $0)
 
@@ -25,14 +26,7 @@ bash $BASEDIR/git-clone.sh $HOME/repos
 
 sudo $BASEDIR/install-ripgrep-on-ubuntu.sh
 
-# anaconda installs
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O $HOME/conda.sh
-export MINICONDAHOME=$HOME/miniconda
-bash $HOME/conda.sh -b -p $MINICONDAHOME
-rm $HOME/conda.sh
-
-. $MINICONDAHOME/etc/profile.d/conda.sh
-conda activate
+$BASEDIR/install-miniconda.sh
 
 # tell bashrc to source  .bash_envvars
 echo "" >> $HOME/.bashrc

@@ -1,0 +1,127 @@
+Parameters:
+  AMI:
+    Type: AWS::EC2::Image::Id
+    Default: ami-02df9ea15c1778c9c
+  AZ:
+    Type: AWS::EC2::AvailabilityZone::Name
+  IAMINSTANCEPROFILE:
+    Type: String
+    Default: arn:aws:iam::319631679975:instance-profile/IAM-role.dev-kdb
+    Description: "IAM instance profile to start ec2 instances under"
+  SECURITYGROUPIDS:
+    Type: List<AWS::EC2::SecurityGroup::Id>
+  SSHKEY:
+    Type: AWS::EC2::KeyPair::KeyName
+    Default: AWS
+  SUBNETID:
+    Type: AWS::EC2::Subnet::Id
+
+Mappings:
+  Constants:
+    UserData:
+      Bootstrap: |
+        #!/bin/bash -x
+        sudo -i -u jack /home/kdb/aws-installs/install-app.sh
+        echo 'started'
+
+Resources:
+
+  EventbusASG:
+    Type: 'AWS::AutoScaling::AutoScalingGroup'
+    Properties:
+      AvailabilityZones:
+        - !Ref AZ
+      Cooldown: 300
+      DesiredCapacity: 1
+      HealthCheckGracePeriod: 60
+      HealthCheckType: EC2
+      LaunchTemplate:
+        LaunchTemplateId: !Ref EventbusLaunchTemplate
+        Version: 1
+      MaxSize: 1
+      MinSize: 1
+      Tags:
+        - Key: APP
+          PropagateAtLaunch: False
+          Value: eventbus
+      VPCZoneIdentifier:
+        - !Ref SUBNETID
+
+  EventbusLaunchTemplate:
+    Type: 'AWS::EC2::LaunchTemplate'
+    Properties:
+      LaunchTemplateData:
+        BlockDeviceMappings:
+            - DeviceName: /dev/xvda
+              Ebs:
+                VolumeSize: 50
+        IamInstanceProfile:
+          Arn: !Ref IAMINSTANCEPROFILE
+        ImageId: !Ref AMI
+        InstanceType: t2.micro
+        KeyName: !Ref SSHKEY
+        SecurityGroupIds: !Ref SECURITYGROUPIDS
+        TagSpecifications:
+          - ResourceType:  instance
+            Tags:
+              - Key: APP
+                Value: eventbus
+        UserData:
+          Fn::Base64:
+            !FindInMap [ Constants, UserData, Bootstrap ]
+      LaunchTemplateName:
+        !Join
+        - '-'
+        - - !Ref AWS::Region
+          - !Ref AWS::StackName
+          - 'eventbus-launch-template'
+
+  RdbASG:
+    Type: 'AWS::AutoScaling::AutoScalingGroup'
+    Properties:
+      AvailabilityZones:
+        - !Ref AZ
+      Cooldown: 300
+      DesiredCapacity: 1
+      HealthCheckGracePeriod: 60
+      HealthCheckType: EC2
+      LaunchTemplate:
+        LaunchTemplateId: !Ref RdbLaunchTemplate
+        Version: 1
+      MaxSize: 1
+      MinSize: 1
+      Tags:
+        - Key: APP
+          PropagateAtLaunch: False
+          Value: rdb
+      VPCZoneIdentifier:
+        - !Ref SUBNETID
+
+  RdbLaunchTemplate:
+    Type: 'AWS::EC2::LaunchTemplate'
+    Properties:
+      LaunchTemplateData:
+        BlockDeviceMappings:
+            - DeviceName: /dev/xvda
+              Ebs:
+                VolumeSize: 50
+        IamInstanceProfile:
+          Arn: !Ref IAMINSTANCEPROFILE
+        ImageId: !Ref AMI
+        InstanceType: t2.micro
+        KeyName: !Ref SSHKEY
+        SecurityGroupIds: !Ref SECURITYGROUPIDS
+        TagSpecifications:
+          - ResourceType:  instance
+            Tags:
+              - Key: APP
+                Value: rdb
+        UserData:
+          Fn::Base64:
+            !FindInMap [ Constants, UserData, Bootstrap ]
+      LaunchTemplateName:
+        !Join
+        - '-'
+        - - !Ref AWS::Region
+          - !Ref AWS::StackName
+          - 'rdb-launch-template'
