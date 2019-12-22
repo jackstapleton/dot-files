@@ -1,8 +1,8 @@
-name: kdb-base
+name: kdb-dev
 channels:
   - kx
   - conda-forge
-  - file://home/jack/build/conda-channel
+  - file://home/ubuntu/conda-channel
 dependencies:
   - boto
   - boto3
@@ -10,6 +10,7 @@ dependencies:
   - numpy
   - pandas
   - psutil
+  - pyq
   - python=3.7
   - pyyaml
   - traitlets
