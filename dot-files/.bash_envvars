@@ -20,12 +20,11 @@ export MINICONDAHOME=$HOME/miniconda
 export REPOS=~/repos
 export CORECHANNEL=$BUILDDIR/repos/core
 
-export core=$REPOS/kdb-core
-export eb=$REPOS/kdb-eventbus
-export rdb=$REPOS/kdb-rdb
-export pub=$REPOS/kdb-pubsub
-
 export notes=$REPOS/notes
 
-export MODULESHOME=~/modules
 export KDBSCHEMA=$REPOS/kdb-schema
+export PYTHONPATH=$REPOS/kdb-core/python
+
+export COREHOME=$REPOS/kdb-core
+export EBHOME=$REPOS/kdb-eventbus
+export RDBHOME=$REPOS/kdb-rdb
