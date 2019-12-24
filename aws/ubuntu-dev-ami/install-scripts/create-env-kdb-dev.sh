@@ -18,22 +18,32 @@ conda activate kdb-dev
 
 
 # link repos into conda env
-for dir in init core main
+SRC=$CONDA_PREFIX/q/src
+mkdir -p $SRC
+
+for dir in init core
 do
     echo "linking $dir"
-    ln -s $HOME/repos/kdb-core/$dir $CONDA_PREFIX/q/$dir
+    ln -s $HOME/repos/kdb-core/q/src/$dir $SRC
 done
+
 
 for module in pubsub
 do
     echo "linking $module"
-    ln -s $HOME/repos/kdb-$module $CONDA_PREFIX/q/$module
+    ln -s $HOME/repos/kdb-$module/q $SRC/$module
 done
 
+
+echo 'linking main'
+ln -s $HOME/repos/kdb-core/q/main $CONDA_PREFIX/q
+
+
 echo "linking core"
-mkdir $CONDA_PREFIX/core
+mkdir -p $CONDA_PREFIX/core
 ln -s $HOME/repos/kdb-core/config $CONDA_PREFIX/core/config
 ln -s $HOME/repos/kdb-core/processes $CONDA_PREFIX/core/processes
+
 
 for app in eventbus rdb
 do
