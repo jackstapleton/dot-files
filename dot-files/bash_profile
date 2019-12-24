@@ -10,4 +10,4 @@ done
 . ~/miniconda/etc/profile.d/conda.sh
 conda activate kdb-dev
 
-INSTANCEID=$(ec2metadata -i)
+INSTANCEID=$(ec2metadata --instance-id)
