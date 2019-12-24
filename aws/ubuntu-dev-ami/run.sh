@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 IP=$1
 BASEDIR=$(dirname $0)
