@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 echo "Running $0"
 
@@ -10,7 +10,11 @@ DOTFILES="ackrc bash_aliases bash_envvars bash_profile gitconfig tmux.conf"
 
 for dotfile in $DOTFILES;
 do
-    ln -s $(pwd)/$DOTFILESDIR/$dotfile $HOME/.$dotfile
+    path=$DOTFILESDIR/$dotfile
+    if [[ $path != "/"* ]]; then
+        path=$(pwd)/$path
+    fi
+    ln -s $path $HOME/.$dotfile
 done
 
 echo "$0 Complete"

@@ -16,15 +16,12 @@ parse_git_branch() {
 # 37 - White
 
 LOCAL_HOSTNAME=$(hostname -d)
-if [[ ${LOCAL_HOSTNAME} =~ .*\.amazonaws\.com ]]; then
-    SYSNAME="(aws)"
-    COLOR="31m"
-elif [[ ${LOCAL_HOSTNAME} =~ localdomain ]]; then
+if [[ $LOCAL_HOSTNAME == "localdomain" ]]; then
     SYSNAME="(wsl)"
     COLOR="35m"
 else
-    SYSNAME=""
-    COLOR="33m"
+    SYSNAME="(aws)"
+    COLOR="31m"
 fi
 
 # setup command prompt
