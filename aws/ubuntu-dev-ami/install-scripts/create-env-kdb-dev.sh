@@ -2,14 +2,22 @@
 
 echo "Running $0"
 
-BASEDIR=$(dirname $0)
+
+# set up dot files
+$HOME/repos/environments-setup/dot-files/util/init.sh
+
+
+# activate conda
 source $HOME/miniconda/etc/profile.d/conda.sh
 conda activate base
 
-conda env create --file=$BASEDIR/dev-kdb.yml
-
+# create kdb-dev
+BASEDIR=$(dirname $0)
+conda env create --file=$BASEDIR/kdb-dev.yml
 conda activate kdb-dev
 
+
+# link repos into conda env
 for dir in init core main
 do
     echo "linking $dir"
@@ -33,3 +41,5 @@ do
     ln -s $HOME/repos/kdb-$app $CONDA_PREFIX/$app
 done
 
+
+echo "$0 Complete"

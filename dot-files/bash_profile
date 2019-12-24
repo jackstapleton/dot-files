@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for bash_file in .bashrc .bash_aliases .bash_envvars
+do
+    if [ -f $HOME/$bash_file ]; then
+        source $HOME/$bash_file
+    fi
+done

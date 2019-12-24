@@ -3,7 +3,7 @@
 IP=$1
 BASEDIR=$(dirname $0)
 
-rsync -av $HOME/build/ ubuntu@$IP:/home/ubuntu/
+rsync -av $HOME/build/conda-channel ubuntu@$IP:/home/ubuntu/
 
 rsync -av $BASEDIR/install-scripts ubuntu@$IP:/home/ubuntu/
 ssh ubuntu@$IP "chmod 777 /home/ubuntu/install-scripts/*"

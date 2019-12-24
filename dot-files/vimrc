@@ -17,7 +17,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'leafgarland/typescript-vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'burnettk/vim-angular'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-commentary'
@@ -35,5 +35,3 @@ Plugin 'stephpy/vim-yaml'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-syntax on

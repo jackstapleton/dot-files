@@ -1,3 +1,6 @@
+
+syntax on
+
 " color scheme
 set background=dark
 colorscheme gruvbox
@@ -34,7 +37,7 @@ set backspace=indent,eol,start    " Make backspace work as you would expect.
 
 autocmd FileType q setlocal commentstring=/\ %s
 
-au BufNewFile,BufRead *.js,*.ts,*.html,*.css
+au BufNewFile,BufRead *.js,*.ts,*.html,*.css,*.yml,*.yaml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
@@ -45,8 +48,7 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     " \ set textwidth=79 |
     \ set autoindent |
-    \ set fileformat=unix |
-    \ nnoremap <leader>c <home>i#<down><esc>
+    \ set fileformat=unix
 
 " undo settings
 set nobackup noswapfile nowritebackup            " disable backup/swap files
