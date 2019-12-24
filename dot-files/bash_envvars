@@ -38,10 +38,10 @@ LS_COLORS='ow=01;34;01'
 export LS_COLORS
 
 # Dev envvars
-export BUILDDIR=$HOME/build
 export MINICONDAHOME=$HOME/miniconda
-export REPOS=~/repos
-export CORECHANNEL=$BUILDDIR/repos/core
+export REPOS=$HOME/repos
+export BUILDDIR=$HOME/build
+export CORECHANNEL=$BUILDDIR/conda-channel
 export notes=$REPOS/notes
 
 export KDBSCHEMA=$REPOS/kdb-schema

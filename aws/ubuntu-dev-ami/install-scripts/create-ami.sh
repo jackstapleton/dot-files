@@ -2,7 +2,7 @@
 
 echo "Running $0"
 
-AMIDATE=`date +%D`
+AMIDATE=$(echo $(date +%DD%T) | sed 's/\//./g' | sed 's/:/./g')
 AZ=$(ec2metadata --availability-zone)
 AMINAME=${AZ::-1}-dev-ec2.ami-$AMIDATE
 
