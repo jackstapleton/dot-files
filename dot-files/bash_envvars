@@ -15,27 +15,31 @@ parse_git_branch() {
 # 36 - Cyan
 # 37 - White
 
-LOCAL_HOSTNAME=$(hostname -d)
-if [[ $LOCAL_HOSTNAME == "localdomain" ]]; then
-    SYSNAME="(wsl)"
-    COLOR="35m"
-else
-    SYSNAME="(aws)"
-    COLOR="31m"
-fi
+construct_ps1(){
+    # configure color for different envs
+    LOCAL_HOSTNAME=$(hostname -d)
+    if [[ $LOCAL_HOSTNAME == "localdomain" ]]; then
+        SYSNAME="(wsl)"
+        COLOR="35m"
+    else
+        SYSNAME="(aws)"
+        COLOR="31m"
+    fi
+    # setup command prompt
+    USERNAME="\[\e[01;"$COLOR"\]\u"
+    HOST="\[\e[01;"$COLOR"\]\H"
+    DIR="\[\e[01;32m\]\w"
+    GIT="\[\e[01;36m\]\$(parse_git_branch)"
+    END="\[\e[01;37m\]$ "
+    NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
+    # join parts
+    echo "$USERNAME\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
+}
 
-# setup command prompt
-USER="\[\e[01;"$COLOR"\]\u"
-HOST="\[\e[01;"$COLOR"\]\H"
-DIR="\[\e[01;32m\]\w"
-GIT="\[\e[01;36m\]\$(parse_git_branch)"
-END="\[\e[01;37m\]$ "
-NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
-export PS1="$USER\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
+export PS1=$(construct_ps1)
 
 # fix wsl directory colors
-LS_COLORS='ow=01;34;01'
-export LS_COLORS
+export LS_COLORS='ow=01;34;01'
 
 # Dev envvars
 export MINICONDAHOME=$HOME/miniconda
