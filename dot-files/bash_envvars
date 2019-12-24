@@ -20,7 +20,7 @@ construct_ps1(){
     LOCAL_HOSTNAME=$(hostname -d)
     if [[ $LOCAL_HOSTNAME == "localdomain" ]]; then
         SYSNAME="(wsl)"
-        COLOR="35m"
+        COLOR="32m"
     else
         SYSNAME="(aws)"
         COLOR="31m"
@@ -28,8 +28,8 @@ construct_ps1(){
     # setup command prompt
     USERNAME="\[\e[01;"$COLOR"\]\u"
     HOST="\[\e[01;"$COLOR"\]\H"
-    DIR="\[\e[01;32m\]\w"
-    GIT="\[\e[01;36m\]\$(parse_git_branch)"
+    DIR="\[\e[01;"$COLOR"\]\w"
+    GIT="\[\e[01;33m\]\$(parse_git_branch)"
     END="\[\e[01;37m\]$ "
     NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
     # join parts
