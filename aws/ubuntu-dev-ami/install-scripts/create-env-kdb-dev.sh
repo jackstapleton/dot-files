@@ -38,6 +38,9 @@ done
 echo 'linking main'
 ln -s $HOME/repos/kdb-core/q/main $CONDA_PREFIX/q
 
+echo 'linking util'
+ln -s $HOME/repos/kdb-core/util $CONDA_PREFIX
+
 
 echo "linking core"
 mkdir -p $CONDA_PREFIX/core
