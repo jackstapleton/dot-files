@@ -1,0 +1,21 @@
+name: kdb
+channels:
+  - kx
+  - conda-forge
+  - http://10.0.1.241/home/ubuntu/conda-channel
+dependencies:
+  - boto
+  - boto3
+  - kdb
+  - kdb-core
+  - kdb-eventbus
+  - kdb-pubsub
+  - kdb-rdb
+  - numpy
+  - pandas
+  - psutil
+  - pyq
+  - python=3.7
+  - pyyaml
+  - traitlets
+  - yaml
