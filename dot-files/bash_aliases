@@ -1,4 +1,4 @@
-alias aa=". ~/miniconda/etc/profile.d/conda.sh; conda activate"
+alias aa=". /home/jack/miniconda/etc/profile.d/conda.sh; conda activate"
 
 alias q="rlwrap q"
 alias p="rlwrap python3"

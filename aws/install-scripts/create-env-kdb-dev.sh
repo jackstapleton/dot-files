@@ -2,13 +2,6 @@
 
 echo "Running $0"
 
-# set up dot files
-$HOME/repos/environments-setup/dot-files/util/init.sh
-
-echo 'export INSTANCEID=$(ec2metadata --instance-id)' >> $HOME/.bash_profile
-echo "$HOME/miniconda/etc/profile.d/conda.sh" >> $HOME/.bash_profile
-echo "conda activate kdb-dev" >> $HOME/.bash_profile
-
 # activate conda
 source $HOME/miniconda/etc/profile.d/conda.sh
 conda activate base
@@ -17,7 +10,6 @@ conda activate base
 BASEDIR=$(dirname $0)
 conda env create --file=$BASEDIR/kdb-dev.yml
 conda activate kdb-dev
-
 
 # link repos into conda env
 SRC=$CONDA_PREFIX/q/src

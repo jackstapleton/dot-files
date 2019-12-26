@@ -21,6 +21,8 @@ ssh ubuntu@$IP "sudo /home/ubuntu/install-scripts/install-ripgrep.sh"
 
 ssh $USER@$IP "/home/ubuntu/install-scripts/setup-repos-dir.sh"
 
+ssh $USER@$IP "/home/jack/environments-setup/dot-files/util/init.sh"
+
 ssh $USER@$IP "/home/ubuntu/install-scripts/create-env-kdb-dev.sh"
 
 ssh $USER@$IP "/home/ubuntu/install-scripts/create-ami.sh"

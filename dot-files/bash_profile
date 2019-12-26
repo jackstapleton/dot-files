@@ -6,8 +6,3 @@ do
         source $HOME/$bash_file
     fi
 done
-
-# if on aws
-if [[ $(hostname -d) != "localdomain" ]]; then
-    export INSTANCEID=$(ec2metadata --instance-id)
-fi
