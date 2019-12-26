@@ -5,10 +5,10 @@ echo "Running $0"
 BASEDIR=$(dirname $0)
 
 # activate conda
-source /home/jack/miniconda/etc/profile.d/conda.sh
+source $HOME/miniconda/etc/profile.d/conda.sh
 conda activate base
 
 # create kdb
-conda env create --file=$BASEDIR/kdb.yml --prefix /opt/
+conda env create --file=$BASEDIR/kdb.yml --prefix /opt/kdb
 
 echo "$0 complete"

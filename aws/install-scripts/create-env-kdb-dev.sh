@@ -11,6 +11,10 @@ BASEDIR=$(dirname $0)
 conda env create --file=$BASEDIR/kdb-dev.yml
 conda activate kdb-dev
 
+echo "" >> $HOME/.bash_profile
+echo "source $HOME/miniconda/etc/profile.d/conda.sh" >> $HOME/.bash_profile
+echo "conda activate kdb-dev" >> $HOME/.bash_profile
+
 # link repos into conda env
 SRC=$CONDA_PREFIX/q/src
 mkdir -p $SRC

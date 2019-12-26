@@ -1,19 +1,33 @@
 #!/bin/bash
 
-echo "Running $0"
-
-USER=kdb-app
+IP=$1
 BASEDIR=$(dirname $0)
 
-ENVREPODIR=$(dirname $BASEDIR)
-sudo -i -u jack $ENVREPODIR/utils/build-pkgs.sh
 
-$BASEDIR/setup-user.sh $USER kdb
+rsync -av $BASEDIR/install-scripts ubuntu@$IP:/home/ubuntu/
+ssh ubuntu@$IP "chmod 777 /home/ubuntu/install-scripts/*"
 
-sudo -i -u $USER $ENVREPODIR/dotfiles/util/init.sh
+rsync -av --exclude "*authorised_keys*" $HOME/.ssh/* ubuntu@$IP:/home/ubuntu/.ssh/
 
-sudo -i -u $USER $BASEDIR/create-env-kdb.sh
+ssh ubuntu@$IP "sudo /home/ubuntu/install-scripts/apt-installs.sh"
 
-sudo -i -u $USER $BASEDIR/create-ami.sh kdb-app
+ssh ubuntu@$IP "sudo /home/ubuntu/install-scripts/setup-user.sh jack kdb"
+ssh ubuntu@$IP "sudo /home/ubuntu/install-scripts/setup-user.sh kdb-app kdb"
 
-echo "$0 complete"
+ssh jack@$IP "/home/ubuntu/install-scripts/install-miniconda.sh"
+
+ssh ubuntu@$IP "sudo /home/ubuntu/install-scripts/install-ripgrep.sh"
+
+ssh jack@$IP "/home/ubuntu/install-scripts/setup-repos-dir.sh"
+
+ssh jack@$IP "/home/jack/repos/environments-setup/dot-files/util/init.sh"
+ssh kdb-app@$IP "/home/jack/repos/environments-setup/dot-files/util/init.sh"
+
+rsync -av $HOME/conda-channel jack@$IP:/home/jack/
+
+ssh jack@$IP "/home/ubuntu/install-scripts/create-env-kdb-dev.sh"
+
+ssh ubuntu@$IP "sudo chown jack:kdb /opt"
+ssh jack@$IP "/home/ubuntu/install-scripts/create-env-kdb.sh"
+
+ssh jack@$IP "/home/ubuntu/install-scripts/create-ami.sh kdb-dev"
