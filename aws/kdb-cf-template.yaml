@@ -21,7 +21,7 @@ Mappings:
     UserData:
       Bootstrap: |
         #!/bin/bash -x
-        sudo -i -u jack /home/kdb/aws-installs/install-app.sh
+        sudo -i -u jack /opt/kdb/util/install-app.sh
         echo 'started'
 
 Resources:
@@ -42,7 +42,7 @@ Resources:
       MinSize: 1
       Tags:
         - Key: APP
-          PropagateAtLaunch: False
+          PropagateAtLaunch: True
           Value: eventbus
       VPCZoneIdentifier:
         - !Ref SUBNETID
@@ -61,11 +61,6 @@ Resources:
         InstanceType: t2.micro
         KeyName: !Ref SSHKEY
         SecurityGroupIds: !Ref SECURITYGROUPIDS
-        TagSpecifications:
-          - ResourceType:  instance
-            Tags:
-              - Key: APP
-                Value: eventbus
         UserData:
           Fn::Base64:
             !FindInMap [ Constants, UserData, Bootstrap ]
@@ -92,7 +87,7 @@ Resources:
       MinSize: 1
       Tags:
         - Key: APP
-          PropagateAtLaunch: False
+          PropagateAtLaunch: True
           Value: rdb
       VPCZoneIdentifier:
         - !Ref SUBNETID
@@ -112,10 +107,6 @@ Resources:
         KeyName: !Ref SSHKEY
         SecurityGroupIds: !Ref SECURITYGROUPIDS
         TagSpecifications:
-          - ResourceType:  instance
-            Tags:
-              - Key: APP
-                Value: rdb
         UserData:
           Fn::Base64:
             !FindInMap [ Constants, UserData, Bootstrap ]
