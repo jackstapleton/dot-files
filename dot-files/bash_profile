@@ -7,9 +7,6 @@ do
     fi
 done
 
-. $MINICONDAHOME/etc/profile.d/conda.sh
-conda activate kdb-dev
-
 # if on aws
 if [[ $(hostname -d) != "localdomain" ]]; then
     export INSTANCEID=$(ec2metadata --instance-id)

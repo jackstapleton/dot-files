@@ -6,9 +6,20 @@ BASEDIR=$(dirname $0)
 
 DOTFILESDIR=$BASEDIR/..
 
-DOTFILES="ackrc bash_aliases bash_envvars bash_profile gitconfig tmux.conf"
+LINKFILES="ackrc bash_aliases bash_envvars bash_profile gitconfig tmux.conf"
 
-for dotfile in $DOTFILES;
+for dotfile in $LINKFILES;
+do
+    path=$DOTFILESDIR/$dotfile
+    if [[ $path != "/"* ]]; then
+        path=$(pwd)/$path
+    fi
+    ln -s $path $HOME/.$dotfile
+done
+
+CPFILES="bash_profile"
+
+for dotfile in $CPFILES;
 do
     path=$DOTFILESDIR/$dotfile
     if [[ $path != "/"* ]]; then
