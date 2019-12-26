@@ -5,6 +5,9 @@ echo "Running $0"
 # set up dot files
 $HOME/repos/environments-setup/dot-files/util/init.sh
 
+echo 'export INSTANCEID=$(ec2metadata --instance-id)' >> $HOME/.bash_profile
+echo "$HOME/miniconda/etc/profile.d/conda.sh" >> $HOME/.bash_profile
+echo "conda activate kdb-dev" >> $HOME/.bash_profile
 
 # activate conda
 source $HOME/miniconda/etc/profile.d/conda.sh
@@ -37,13 +40,11 @@ done
 echo 'linking main'
 ln -s $HOME/repos/kdb-core/q/main $CONDA_PREFIX/q
 
-<<<<<<< Updated upstream:aws/ubuntu-kdb-dev-ami/install-scripts/create-env-kdb-dev.sh
 echo 'linking util'
 ln -s $HOME/repos/kdb-core/util $CONDA_PREFIX
-=======
+
 echo 'linking python/aws'
 ln -s $HOME/repos/kdb-core/python/aws $CONDA_PREFIX/lib/python3.7
->>>>>>> Stashed changes:aws/ubuntu-dev-ami/install-scripts/create-env-kdb-dev.sh
 
 
 echo "linking core"
