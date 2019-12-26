@@ -2,7 +2,7 @@ name: kdb
 channels:
   - kx
   - conda-forge
-  - http://10.0.1.241/home/ubuntu/conda-channel
+  - file://home/jack/conda-channel
 dependencies:
   - boto
   - boto3

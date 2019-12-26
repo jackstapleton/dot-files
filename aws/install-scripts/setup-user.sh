@@ -1,11 +1,17 @@
-#!/bin/bash -x
+#!/bin/bash
 
 echo "Running $0"
 
 # set up $USER user
 export USER=$1
-useradd -s /bin/bash -d /home/$USER/ -m -G sudo $USER
+export GROUP=$2
+
+groupadd $GROUP
+useradd -s /bin/bash -d /home/$USER/ -g $GROUP -m -G sudo $USER
 export HOME=/home/$USER
+
+# add to kdb group
+usermod -a -G $GROUP $USER
 
 # set up ssh
 mkdir -p $HOME/.ssh
@@ -16,4 +22,6 @@ mkdir -p $HOME/.aws
 echo -e '[default]\nregion=eu-west-1\noutput=json' > $HOME/.aws/config
 
 # change home dir ownership
-chown -R $USER:$USER $HOME
+chown -R $USER:$GROUP $HOME
+
+echo "$0 complete"

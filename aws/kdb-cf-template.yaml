@@ -21,7 +21,7 @@ Mappings:
     UserData:
       Bootstrap: |
         #!/bin/bash -x
-        sudo -i -u jack /opt/kdb/util/install-app.sh
+        sudo -i -u kdb /opt/kdb/util/install-app.sh
         echo 'started'
 
 Resources:

@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 echo "Running $0"
 
@@ -25,10 +25,10 @@ do
 
     conda build info/recipe/
 
-    mv $CONDA_PREFIX/conda-bld/linux-64/$package-$version-* $HOME/build/conda-channel/linux-64/
+    mv $CONDA_PREFIX/conda-bld/linux-64/$package-$version-* $HOME/conda-channel/linux-64/
 done
 
-conda index $HOME/build/conda-channel
+conda index $HOME/conda-channel
 conda build purge
 
 echo "$0 complete"
