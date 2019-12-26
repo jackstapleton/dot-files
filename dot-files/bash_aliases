@@ -7,3 +7,7 @@ alias l="ls -CF"
 alias ls="ls -h --color=auto"
 alias la="ls -la --color=auto"
 alias ll="ls -l --color=auto"
+
+alias cdpre='cd $CONDA_PREFIX'
+alias cdq='cd $CONDA_PREFIX/q'
+alias cdsrc='cd $CONDA_PREFIX/q/src'

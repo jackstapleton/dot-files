@@ -4,6 +4,7 @@ echo "Running $0"
 
 REPODIR=$HOME/repos
 mkdir -p $REPODIR
+touch $REPODIR/.ctrlp
 
 GIT=git@github.com:jackstapleton
 

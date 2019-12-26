@@ -2,7 +2,6 @@
 
 echo "Running $0"
 
-
 # set up dot files
 $HOME/repos/environments-setup/dot-files/util/init.sh
 
@@ -38,8 +37,13 @@ done
 echo 'linking main'
 ln -s $HOME/repos/kdb-core/q/main $CONDA_PREFIX/q
 
+<<<<<<< Updated upstream:aws/ubuntu-kdb-dev-ami/install-scripts/create-env-kdb-dev.sh
 echo 'linking util'
 ln -s $HOME/repos/kdb-core/util $CONDA_PREFIX
+=======
+echo 'linking python/aws'
+ln -s $HOME/repos/kdb-core/python/aws $CONDA_PREFIX/lib/python3.7
+>>>>>>> Stashed changes:aws/ubuntu-dev-ami/install-scripts/create-env-kdb-dev.sh
 
 
 echo "linking core"
@@ -53,6 +57,5 @@ do
     echo "linking $app"
     ln -s $HOME/repos/kdb-$app $CONDA_PREFIX/$app
 done
-
 
 echo "$0 Complete"

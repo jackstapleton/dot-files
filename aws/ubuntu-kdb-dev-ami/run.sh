@@ -18,7 +18,7 @@ ssh $USER@$IP "/home/ubuntu/install-scripts/install-miniconda.sh"
 ssh ubuntu@$IP "sudo /home/ubuntu/install-scripts/install-ripgrep.sh"
 
 rsync -av --exclude "*authorised_keys*" $HOME/.ssh/* $USER@$IP:/home/$USER/.ssh/
-ssh $USER@$IP "/home/ubuntu/install-scripts/git-clone.sh"
+ssh $USER@$IP "/home/ubuntu/install-scripts/setup-repos-dir.sh"
 
 ssh $USER@$IP "/home/ubuntu/install-scripts/create-env-kdb-dev.sh"
 

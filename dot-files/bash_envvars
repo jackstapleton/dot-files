@@ -3,20 +3,20 @@
 # construct PS1
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-  }
+}
 
-## Colors
-# 30 - Black
-# 31 - Red
-# 32 - Green
-# 33 - Yellow
-# 34 - Blue
-# 35 - Purple
-# 36 - Cyan
-# 37 - White
+construct_ps1() {
+    ### configure color for different envs
+    ## Colors
+    # 30 - Black
+    # 31 - Red
+    # 32 - Green
+    # 33 - Yellow
+    # 34 - Blue
+    # 35 - Purple
+    # 36 - Cyan
+    # 37 - White
 
-construct_ps1(){
-    # configure color for different envs
     LOCAL_HOSTNAME=$(hostname -d)
     if [[ $LOCAL_HOSTNAME == "localdomain" ]]; then
         SYSNAME="(wsl)"
@@ -25,6 +25,7 @@ construct_ps1(){
         SYSNAME="(aws)"
         COLOR="31m"
     fi
+
     # setup command prompt
     USERNAME="\[\e[01;"$COLOR"\]\u"
     HOST="\[\e[01;"$COLOR"\]\H"
@@ -40,16 +41,3 @@ export PS1=$(construct_ps1)
 
 # fix wsl directory colors
 export LS_COLORS='ow=01;34;01'
-
-# Dev envvars
-export MINICONDAHOME=$HOME/miniconda
-export REPOS=$HOME/repos
-export BUILDDIR=$HOME/build
-export CORECHANNEL=$BUILDDIR/conda-channel
-export notes=$REPOS/notes
-
-export KDBSCHEMA=$REPOS/kdb-schema
-export PYTHONPATH=$REPOS/kdb-core/python
-export COREHOME=$REPOS/kdb-core
-export EBHOME=$REPOS/kdb-eventbus
-export RDBHOME=$REPOS/kdb-rdb
