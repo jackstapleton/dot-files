@@ -36,6 +36,9 @@ done
 echo 'linking main'
 ln -s $HOME/repos/kdb-core/q/main $CONDA_PREFIX/q
 
+echo 'linking bin'
+ln -s $HOME/repos/kdb-core/bin/* $CONDA_PREFIX/bin
+
 echo 'linking util'
 ln -s $HOME/repos/kdb-core/util $CONDA_PREFIX
 
