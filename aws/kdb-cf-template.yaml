@@ -1,9 +1,10 @@
 Parameters:
   AMI:
     Type: AWS::EC2::Image::Id
-    Default: ami-0fd063d4f9be7daa7
+    Default: 'ami-0c5d0e3ace243119f'
   AZ:
     Type: AWS::EC2::AvailabilityZone::Name
+    Default: 'eu-west-1a'
   IAMINSTANCEPROFILE:
     Type: String
     Default: arn:aws:iam::319631679975:instance-profile/IAM-role.dev-kdb
@@ -12,18 +13,20 @@ Parameters:
     Type: List<AWS::EC2::SecurityGroup::Id>
   SSHKEY:
     Type: AWS::EC2::KeyPair::KeyName
-    Default: AWS
+    Default: 'AWS'
   SUBNETID:
     Type: AWS::EC2::Subnet::Id
+    Default: 'subnet-0fa8ffdae6edb4f14'
 
 Mappings:
   Constants:
     UserData:
       Bootstrap: |
         #!/bin/bash -x
-        sudo -i -u jack /home/jack/repos/environments-setup/util/git-pull-subdirs.sh
+        echo 'Running User Data'
+        sudo -i -u jack /home/jack/repos/environments-setup/util/git-pull-subdirs.sh /home/jack/repos
         sudo -i -u jack /home/jack/repos/kdb-core/util/install-app.sh
-        sudo -i -u kdb-app /opt/kdb/util/install-app.sh
+        # sudo -i -u kdb-app /opt/kdb/util/install-app.sh
         echo 'started'
 
 Resources:
@@ -63,6 +66,11 @@ Resources:
         InstanceType: t2.micro
         KeyName: !Ref SSHKEY
         SecurityGroupIds: !Ref SECURITYGROUPIDS
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+            - Key: Name
+              Value: !Sub '${AWS::Region}.ec2-instance.${AWS::StackName}.eventbus'
         UserData:
           Fn::Base64:
             !FindInMap [ Constants, UserData, Bootstrap ]
@@ -108,6 +116,11 @@ Resources:
         InstanceType: t2.micro
         KeyName: !Ref SSHKEY
         SecurityGroupIds: !Ref SECURITYGROUPIDS
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+            - Key: Name
+              Value: !Sub '${AWS::Region}.ec2-instance.${AWS::StackName}.rdb'
         UserData:
           Fn::Base64:
             !FindInMap [ Constants, UserData, Bootstrap ]
