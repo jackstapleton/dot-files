@@ -25,7 +25,7 @@ do
     if [[ $path != "/"* ]]; then
         path=$(pwd)/$path
     fi
-    ln -s $path $HOME/.$dotfile
+    cp $path $HOME/.$dotfile
 done
 
 echo "$0 Complete"
