@@ -1,5 +1,6 @@
 alias aa=". /home/jack/miniconda/etc/profile.d/conda.sh; conda activate"
 
+
 alias q="rlwrap q"
 alias p="rlwrap python3"
 
@@ -11,3 +12,20 @@ alias ll="ls -l --color=auto"
 alias cdpre='cd $CONDA_PREFIX'
 alias cdq='cd $CONDA_PREFIX/q'
 alias cdsrc='cd $CONDA_PREFIX/q/src'
+
+alias gpullall='$HOME/repos/environments-setup/util/git-pull-subdirs.sh $HOME/repos'
+
+gitpushall() {
+    if [ $# == 0 ]; then
+        echo 'Error: must pass an argument'
+        return
+    elif [ $# == 1 ]; then
+        branch=master
+    elif [ $# == 2 ]; then
+        branch=$2
+    fi
+
+    git add --all .
+    git commit -m "$1"
+    git push origin $branch
+}

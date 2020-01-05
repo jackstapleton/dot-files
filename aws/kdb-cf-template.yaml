@@ -1,7 +1,7 @@
 Parameters:
   AMI:
     Type: AWS::EC2::Image::Id
-    Default: 'ami-0c5d0e3ace243119f'
+    Default: 'ami-033917ac2c4225235'
   AZ:
     Type: AWS::EC2::AvailabilityZone::Name
     Default: 'eu-west-1a'
@@ -24,9 +24,13 @@ Mappings:
       Bootstrap: |
         #!/bin/bash -x
         echo 'Running User Data'
+        echo '' >> /home/jack/.bash_profile
+        echo 'source /home/jack/miniconda/bin/activate' >> /home/jack/.bash_profile
+        echo 'conda activate base' >> /home/jack/.bash_profile
+        echo '' >> /home/jack/.bash_profile
         sudo -i -u jack /home/jack/repos/environments-setup/util/git-pull-subdirs.sh /home/jack/repos
         sudo -i -u jack /home/jack/repos/kdb-core/util/install-app.sh
-        # sudo -i -u kdb-app /opt/kdb/util/install-app.sh
+        sudo -i -u jack /home/jack/repos/kdb-core/util/start-daemon.sh
         echo 'started'
 
 Resources:
