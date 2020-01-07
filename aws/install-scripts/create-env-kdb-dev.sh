@@ -42,8 +42,8 @@ ln -s $HOME/repos/kdb-core/bin/* $CONDA_PREFIX/bin
 echo 'linking util'
 ln -s $HOME/repos/kdb-core/util $CONDA_PREFIX
 
-echo 'linking python/aws'
-ln -s $HOME/repos/kdb-core/python/aws $CONDA_PREFIX/lib/python3.7
+echo 'linking python'
+ln -s $HOME/repos/kdb-core/python/* $CONDA_PREFIX/lib/python3.7
 
 
 echo "linking core"
@@ -56,6 +56,8 @@ for app in eventbus rdb
 do
     echo "linking $app"
     ln -s $HOME/repos/kdb-$app $CONDA_PREFIX/$app
+    ln -s $HOME/repos/kdb-$app/info/recipe/activate.sh  $CONDA_PREFIX/etc/conda/activate.d/${app}_activate.sh
+    ln -s $HOME/repos/kdb-$app/info/recipe/deactivate.sh  $CONDA_PREFIX/etc/conda/deactivate.d/${app}_deactivate.sh
 done
 
 echo "$0 Complete"

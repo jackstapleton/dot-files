@@ -6,3 +6,4 @@ do
         source $HOME/$bash_file
     fi
 done
+

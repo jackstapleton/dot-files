@@ -30,4 +30,6 @@ ssh jack@$IP "/home/ubuntu/install-scripts/create-env-kdb-dev.sh"
 ssh ubuntu@$IP "sudo chown jack:kdb /opt"
 ssh jack@$IP "/home/ubuntu/install-scripts/create-env-kdb.sh"
 
+ssh jack@$IP "q"
+
 ssh jack@$IP "/home/ubuntu/install-scripts/create-ami.sh kdb-dev"
