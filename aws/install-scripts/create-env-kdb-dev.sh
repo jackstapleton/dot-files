@@ -11,10 +11,6 @@ BASEDIR=$(dirname $0)
 conda env create --file=$BASEDIR/kdb-dev.yml
 conda activate kdb-dev
 
-echo "" >> $HOME/.bash_profile
-echo "source $HOME/miniconda/etc/profile.d/conda.sh" >> $HOME/.bash_profile
-echo "conda activate kdb-dev" >> $HOME/.bash_profile
-
 # link repos into conda env
 SRC=$CONDA_PREFIX/q/src
 mkdir -p $SRC
@@ -50,6 +46,10 @@ echo "linking core"
 mkdir -p $CONDA_PREFIX/core
 ln -s $HOME/repos/kdb-core/config $CONDA_PREFIX/core/config
 ln -s $HOME/repos/kdb-core/processes $CONDA_PREFIX/core/processes
+
+echo "linking schema"
+mkdir -p $CONDA_PREFIX/core
+ln -s $HOME/repos/kdb-schema/tables $CONDA_PREFIX/q/schema
 
 
 for app in eventbus rdb
