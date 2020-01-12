@@ -52,7 +52,7 @@ mkdir -p $CONDA_PREFIX/core
 ln -s $HOME/repos/kdb-schema/tables $CONDA_PREFIX/q/schema
 
 
-for app in eventbus rdb
+for app in eventbus rdb gateway hdb
 do
     echo "linking $app"
     ln -s $HOME/repos/kdb-$app $CONDA_PREFIX/$app

@@ -85,6 +85,106 @@ Resources:
           - !Ref AWS::StackName
           - 'eventbus-launch-template'
 
+  HdbASG:
+    Type: 'AWS::AutoScaling::AutoScalingGroup'
+    Properties:
+      AvailabilityZones:
+        - !Ref AZ
+      Cooldown: 300
+      DesiredCapacity: 1
+      HealthCheckGracePeriod: 60
+      HealthCheckType: EC2
+      LaunchTemplate:
+        LaunchTemplateId: !Ref HdbLaunchTemplate
+        Version: 1
+      MaxSize: 5
+      MinSize: 1
+      Tags:
+        - Key: APP
+          PropagateAtLaunch: True
+          Value: hdb
+      VPCZoneIdentifier:
+        - !Ref SUBNETID
+
+  HdbLaunchTemplate:
+    Type: 'AWS::EC2::LaunchTemplate'
+    Properties:
+      LaunchTemplateData:
+        BlockDeviceMappings:
+            - DeviceName: /dev/xvda
+              Ebs:
+                VolumeSize: 50
+        IamInstanceProfile:
+          Arn: !Ref IAMINSTANCEPROFILE
+        ImageId: !Ref AMI
+        InstanceType: t2.micro
+        KeyName: !Ref SSHKEY
+        SecurityGroupIds: !Ref SECURITYGROUPIDS
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+            - Key: Name
+              Value: !Sub '${AWS::Region}.ec2-instance.${AWS::StackName}.hdb'
+        UserData:
+          Fn::Base64:
+            !FindInMap [ Constants, UserData, Bootstrap ]
+      LaunchTemplateName:
+        !Join
+        - '-'
+        - - !Ref AWS::Region
+          - !Ref AWS::StackName
+          - 'hdb-launch-template'
+
+  HdbASG:
+    Type: 'AWS::AutoScaling::AutoScalingGroup'
+    Properties:
+      AvailabilityZones:
+        - !Ref AZ
+      Cooldown: 300
+      DesiredCapacity: 1
+      HealthCheckGracePeriod: 60
+      HealthCheckType: EC2
+      LaunchTemplate:
+        LaunchTemplateId: !Ref HdbLaunchTemplate
+        Version: 1
+      MaxSize: 5
+      MinSize: 1
+      Tags:
+        - Key: APP
+          PropagateAtLaunch: True
+          Value: hdb
+      VPCZoneIdentifier:
+        - !Ref SUBNETID
+
+  GatewayLaunchTemplate:
+    Type: 'AWS::EC2::LaunchTemplate'
+    Properties:
+      LaunchTemplateData:
+        BlockDeviceMappings:
+            - DeviceName: /dev/xvda
+              Ebs:
+                VolumeSize: 50
+        IamInstanceProfile:
+          Arn: !Ref IAMINSTANCEPROFILE
+        ImageId: !Ref AMI
+        InstanceType: t2.micro
+        KeyName: !Ref SSHKEY
+        SecurityGroupIds: !Ref SECURITYGROUPIDS
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+            - Key: Name
+              Value: !Sub '${AWS::Region}.ec2-instance.${AWS::StackName}.gateway'
+        UserData:
+          Fn::Base64:
+            !FindInMap [ Constants, UserData, Bootstrap ]
+      LaunchTemplateName:
+        !Join
+        - '-'
+        - - !Ref AWS::Region
+          - !Ref AWS::StackName
+          - 'gateway-launch-template'
+
   RdbASG:
     Type: 'AWS::AutoScaling::AutoScalingGroup'
     Properties:
@@ -97,7 +197,7 @@ Resources:
       LaunchTemplate:
         LaunchTemplateId: !Ref RdbLaunchTemplate
         Version: 1
-      MaxSize: 1
+      MaxSize: 5
       MinSize: 1
       Tags:
         - Key: APP

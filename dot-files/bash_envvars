@@ -27,14 +27,14 @@ construct_ps1() {
     fi
 
     # setup command prompt
-    USERNAME="\[\e[01;"$COLOR"\]\u"
-    HOST="\[\e[01;"$COLOR"\]\H"
-    DIR="\[\e[01;"$COLOR"\]\w"
-    GIT="\[\e[01;33m\]\$(parse_git_branch)"
-    END="\[\e[01;37m\]$ "
+    USERNAME="\e[01;"$COLOR"\]\u"
+    HOST="\e[01;"$COLOR"\]\H"
+    DIR="\e[01;"$COLOR"\]\w"
+    GIT="\e[01;33m\]\$(parse_git_branch)"
+    END="\e[01;37m\]$ "
     NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
     # join parts
-    echo "$USERNAME\[\e[01;37m\]@$HOST$\[\e[01;37m\]: $DIR$GIT $END"
+    echo "$USERNAME\[\e[01;37m\]@$HOST\e[01;37m\]:$DIR$GIT $END"
 }
 
 export PS1=$(construct_ps1)
