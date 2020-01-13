@@ -9,7 +9,10 @@ dependencies:
   - kdb
   - kdb-core
   - kdb-eventbus
+  - kdb-gateway
+  - kdb-hdb
   - kdb-pubsub
+  - kdb-query
   - kdb-rdb
   - numpy
   - pandas

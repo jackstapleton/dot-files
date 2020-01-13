@@ -22,7 +22,7 @@ do
 done
 
 
-for module in pubsub
+for module in pubsub query
 do
     echo "linking $module"
     ln -s $HOME/repos/kdb-$module/q $SRC/$module

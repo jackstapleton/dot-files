@@ -9,3 +9,8 @@ alias la="ls -la --color=auto"
 alias ll="ls -l --color=auto"
 
 source $HOME/repos/environments-setup/util/git-funcs.sh
+
+alias qeb="qstart --app eventbus --proctype "
+alias qgw="qstart --app gateway --proctype "
+alias qhdb="qstart --app hdb --proctype "
+alias qrdb="qstart --app rdb --proctype "
