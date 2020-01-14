@@ -1,0 +1,14 @@
+Resources:
+  EFS:
+    Type: AWS::EFS::FileSystem
+    Properties:
+      Encrypted: False
+      FileSystemTags:
+        - Key: Name
+          Value: !Sub '${AWS::Region}.efs.${AWS::StackName}.filesytem'
+      PerformanceMode: generalPurpose
+      ThroughputMode: bursting
+Outputs:
+  EfsId:
+    Description: "Id of the EFS files system"
+    Value: !Ref EFS

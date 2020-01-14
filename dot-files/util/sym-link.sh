@@ -6,7 +6,7 @@ BASEDIR=$(dirname $0)
 
 DOTFILESDIR=$BASEDIR/..
 
-LINKFILES="ackrc bash_aliases bash_envvars gitconfig tmux.conf"
+LINKFILES="ackrc bash_aliases bash_envvars gitconfig inputrc tmux.conf"
 
 for dotfile in $LINKFILES;
 do

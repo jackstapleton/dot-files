@@ -13,6 +13,13 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
 
+" buffer settings
+set autowrite
+
+" wild menu
+set wildmenu
+set wildmode=longest:list,full
+
 " split settings/mappings
 set splitbelow
 set splitright
