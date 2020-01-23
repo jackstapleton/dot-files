@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 echo "Running $0"
 
@@ -7,11 +7,8 @@ export USER=$1
 export GROUP=$2
 
 groupadd $GROUP
-useradd -s /bin/bash -d /home/$USER/ -g $GROUP -m -G sudo $USER
+useradd --shell /bin/bash --home-dir /home/$USER/ --create-home --gid $GROUP --groups sudo $USER
 export HOME=/home/$USER
-
-# add to kdb group
-usermod -a -G $GROUP $USER
 
 # set up ssh
 mkdir -p $HOME/.ssh
