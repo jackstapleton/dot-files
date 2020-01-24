@@ -27,7 +27,7 @@ construct_ps1() {
 
     LOCAL_HOSTNAME=$(hostname -d)
     if [[ $LOCAL_HOSTNAME == "nomura.com" ]]; then
-        COLOR="\[\e[0;31m\]"    # dark green
+        COLOR="\[\e[0;32m\]"    # dark green
     else
         COLOR="\[\e[0;91m\]"    # light red
     fi
