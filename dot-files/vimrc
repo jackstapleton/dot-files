@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " general plugins
 Plugin 'mileszs/ack.vim'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'junegunn/goyo.vim'
