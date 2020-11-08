@@ -59,3 +59,9 @@ nnoremap <leader>set :e ~/.vim/plugin/settings.vim<cr>
 " zap whitespace
 nnoremap <leader>zz :%s/\s\+$//g<cr>
 nnoremap <leader>zt :%s/\t/    /g<cr>
+
+
+" tabs
+nnoremap <leader>e :tabnew<space>
+nnoremap [t :tabprev<cr>
+nnoremap t] :tabnext<cr>

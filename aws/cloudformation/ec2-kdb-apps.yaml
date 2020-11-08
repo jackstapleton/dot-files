@@ -1,7 +1,7 @@
 Parameters:
   AMI:
     Type: AWS::EC2::Image::Id
-    Default: 'ami-033917ac2c4225235'
+    Default: 'ami-0da067aed0f9f0246'
   AZ:
     Type: AWS::EC2::AvailabilityZone::Name
     Default: 'eu-west-1a'
@@ -135,7 +135,7 @@ Resources:
           - !Ref AWS::StackName
           - 'hdb-launch-template'
 
-  HdbASG:
+  GatewayASG:
     Type: 'AWS::AutoScaling::AutoScalingGroup'
     Properties:
       AvailabilityZones:
@@ -145,14 +145,14 @@ Resources:
       HealthCheckGracePeriod: 60
       HealthCheckType: EC2
       LaunchTemplate:
-        LaunchTemplateId: !Ref HdbLaunchTemplate
+        LaunchTemplateId: !Ref GatewayLaunchTemplate
         Version: 1
       MaxSize: 5
       MinSize: 1
       Tags:
         - Key: APP
           PropagateAtLaunch: True
-          Value: hdb
+          Value: gateway
       VPCZoneIdentifier:
         - !Ref SUBNETID
 

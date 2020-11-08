@@ -2,10 +2,11 @@ name: kdb
 channels:
   - kx
   - conda-forge
-  - file://home/jack/conda-channel
+  - file://home/ubuntu/conda-channel
 dependencies:
   - boto
   - boto3
+  - flake8
   - kdb
   - kdb-core
   - kdb-eventbus
@@ -17,6 +18,7 @@ dependencies:
   - numpy
   - pandas
   - psutil
+  - pylint
   - pyq
   - python=3.7
   - pyyaml

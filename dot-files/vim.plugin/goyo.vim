@@ -1,5 +1,9 @@
 " goyo settings
 
+let g:goyo_width='80%'
+let g:goyo_heigth='95%'
+let g:goyo_linenr=0
+
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off

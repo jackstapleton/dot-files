@@ -15,10 +15,11 @@ let g:lightline = {
 
 " buffer settings
 set autowrite
+set showtabline=2
 
 " wild menu
 set wildmenu
-set wildmode=longest:list,full
+set wildmode=full
 
 " split settings/mappings
 set splitbelow
@@ -53,9 +54,14 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    " \ set textwidth=79 |
+    \ set textwidth=79 |
+    \ set colorcolumn=80 |
     \ set autoindent |
     \ set fileformat=unix
+
+autocmd BufRead,BufNewFile *.md
+    \ setlocal spell |
+    \ syntax sync minlines=10000
 
 " undo settings
 set nobackup noswapfile nowritebackup            " disable backup/swap files

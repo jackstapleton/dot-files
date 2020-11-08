@@ -1,13 +1,16 @@
 #!/bin/bash
 
-echo "Running $0"
 
-# miniconda installs
+echo -e "\nRunning $0\n"
+
+
 wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O $HOME/conda.sh
-export MINICONDAHOME=$HOME/miniconda
-bash $HOME/conda.sh -b -p $MINICONDAHOME
+bash $HOME/conda.sh -b -p ~/miniconda
 rm $HOME/conda.sh
 
-. $MINICONDAHOME/etc/profile.d/conda.sh
+source ~/miniconda/etc/profile.d/conda.sh
 conda activate
 conda install conda-build -y
+
+
+echo -e "\nCompleted $0\n"

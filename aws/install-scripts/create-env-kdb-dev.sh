@@ -28,6 +28,8 @@ do
     ln -s $HOME/repos/kdb-$module/q $SRC/$module
 done
 
+echo 'linking q lic'
+ln -s $HOME/repos/kdb-core/q/kc.lic $CONDA_PREFIX/q
 
 echo 'linking main'
 ln -s $HOME/repos/kdb-core/q/main $CONDA_PREFIX/q

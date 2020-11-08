@@ -9,7 +9,7 @@ repos_dir=$2
 source $HOME/miniconda/etc/profile.d/conda.sh
 conda activate base
 
-for package in kdb-core kdb-schema kdb-pubsub kdb-eventbus kdb-rdb
+for package in kdb-core kdb-schema kdb-pubsub kdb-eventbus kdb-rdb kdb-hdb kdb-query kdb-gateway
 do
     repo=$repos_dir/$package
 
