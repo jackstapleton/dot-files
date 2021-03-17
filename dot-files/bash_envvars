@@ -16,25 +16,26 @@ construct_ps1() {
     # 35 - Purple
     # 36 - Cyan
     # 37 - White
+    # 90 - Dark Gray
+    # 91 - Light Red
+    # 92 - Light Green
+    # 93 - Light Yellow
+    # 94 - Light Blue
+    # 95 - Light Purple
+    # 96 - Light Cyan
+    # 97 - White
 
     LOCAL_HOSTNAME=$(hostname -d)
-    if [[ $LOCAL_HOSTNAME == "localdomain" ]]; then
-        SYSNAME="(wsl)"
-        COLOR="32m"
+    if [[ $LOCAL_HOSTNAME == "nomura.com" ]]; then
+        COLOR="\[\e[0;32m\]"    # dark green
     else
-        SYSNAME="(aws)"
-        COLOR="31m"
+        COLOR="\[\e[0;91m\]"    # light red
     fi
 
-    # setup command prompt
-    USERNAME="\e[01;"$COLOR"\]\u"
-    HOST="\e[01;"$COLOR"\]\H"
-    DIR="\e[01;"$COLOR"\]\w"
-    GIT="\e[01;33m\]\$(parse_git_branch)"
-    END="\e[01;37m\]$ "
-    NEW_LINE="\n\[\e[01;37m\] >>> \[\e[01;00m\]"
-    # join parts
-    echo "$USERNAME\[\e[01;37m\]@$HOST\e[01;37m\]:$DIR$GIT $END"
+    GRAY="\[\e[0;37m\]"
+    YELLOW="\[\e[0;93m\]"
+    # "user@host:pwd (git branch) $ "
+    echo "${COLOR}\u${GRAY}@${COLOR}\H${GRAY}:${COLOR}\w${YELLOW}\$(parse_git_branch) ${GRAY}$ "
 }
 
 export PS1=$(construct_ps1)

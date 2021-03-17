@@ -22,9 +22,8 @@ noremap <leader>aw <esc>:w<cr>:Ack!<space><c-r><c-w><cr>
 nmap <silent> <leader>an <Plug>(ale_next_wrap)
 nmap <silent> <leader>ap <Plug>(ale_previous_wrap)
 " auto insertions
-nnoremap <cr> o<esc>
-nnoremap <s-cr> <s-o><esc>
 nnoremap <leader>dbg o'dbg;<esc>
+nnoremap <leader>bp obreakpint();<esc>
 nnoremap <leader>; A;<esc>
 nnoremap <leader>bb ggi#!/bin/bash<cr><esc>
 " buffers
