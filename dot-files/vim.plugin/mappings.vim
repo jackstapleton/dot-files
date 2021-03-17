@@ -43,6 +43,7 @@ nnoremap <leader>ga :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gread<cr>
 nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gll :Glog<cr>
 nnoremap <leader>glf :Glog -- %<cr>
