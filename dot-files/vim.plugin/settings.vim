@@ -6,12 +6,16 @@ set background=dark
 colorscheme gruvbox
 set t_Co=256
 
-" lightline config
-set laststatus=2
-set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ }
+" " lightline config
+" set laststatus=2
+" set noshowmode
+" let g:lightline = {
+"       \ 'colorscheme': 'seoul256',
+"       \ }
+
+" airline
+
+
 
 " buffer settings
 set autowrite

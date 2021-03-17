@@ -28,19 +28,31 @@ nnoremap <leader>dbg o'dbg;<esc>
 nnoremap <leader>; A;<esc>
 nnoremap <leader>bb ggi#!/bin/bash<cr><esc>
 " buffers
-nnoremap <leader>o :only<cr>
 nnoremap <leader>gy :Goyo<cr>
-" margins
+nnoremap <leader>bc :bdelete<cr>
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bp :bprevious<cr>
+" quickfix list
+nnoremap <leader>cc :cclose<cr>
+nnoremap <leader>cn :cnext<cr>
+nnoremap <leader>cp :cprevious<cr>
+" git
 nnoremap <leader>gg :GitGutterToggle<cr>
+" vim fugitive
+nnoremap <leader>ga :Gwrite<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gc :Gread<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gll :Glog<cr>
+nnoremap <leader>glf :Glog -- %<cr>
+nnoremap <leader>gg :GitGutterToggle<cr>
+" line numbers
 nnoremap <leader>no :set nonumber norelativenumber<cr>
 nnoremap <leader>nu :set number norelativenumber<cr>
 nnoremap <leader>nr :set number relativenumber<cr>
 " netrw
 nnoremap <leader>t :Vexplore<cr>
-" save and run current file
-nnoremap <leader>bs :w<cr>:!bash %<cr>
-nnoremap <leader>p :w<cr>:!python %<cr>
-nnoremap <leader>q :w<cr>:!rlwrap q %<cr>
 " search and replace
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/<c-r><c-w>/g<left><left>
 nnoremap <leader>r :.s///<left><left>
@@ -48,6 +60,7 @@ nnoremap <leader>r :.s///<left><left>
 nnoremap <leader>\| :vsp<cr>
 nnoremap <leader>\ :vsp<cr>
 nnoremap <leader>- :sp<cr>
+nnoremap <leader>o :only<cr>
 nnoremap <c-h> <c-w><c-h>
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>

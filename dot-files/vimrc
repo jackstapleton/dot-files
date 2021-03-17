@@ -9,12 +9,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " general plugins
+Plugin 'farmergreg/vim-lastplace'
+" Plugin 'ap/vim-buftabline'
+Plugin 'bling/vim-bufferline'
+Plugin 'junegunn/gv.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'junegunn/goyo.vim'
-Plugin 'itchyny/lightline.vim'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'leafgarland/typescript-vim'
 "Plugin 'Valloric/YouCompleteMe'
@@ -31,6 +35,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'stephpy/vim-yaml'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
